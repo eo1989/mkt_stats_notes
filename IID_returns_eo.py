@@ -44,7 +44,6 @@ plt.style.use(["seaborn-notebook", "./presentation.mplstyle"])  # jupyter versio
 #     plt.plot([1, 2, 3, 4])
 # Context Manager version
 
-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
 
 
 
@@ -737,5 +736,3 @@ plt.plot(bins, univariate_normal(bins, mean, variance), linewidth=2, color="r")
 plt.savefig("generated_normal_distribution", format="svg")
 # plt.show()
 # -
-
-
