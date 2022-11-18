@@ -13,10 +13,10 @@
 #     name: python3
 # ---
 
-# ### <center>Univariate/Multivariate Gaussian distribution and their properties</center>
+# ### <center>Univariate/Multivariate Gaussian Distributions & Their Properties</center>
 #
 
-# ### <center>Univariate Normal Distribution</center>
+# ### <center>Univariate Normal Distributions</center>
 #
 # The normal distribution (Gaussain Distribution) is defined by two parameters: mean $ \mu $, which is the expected value of the distribution and standard deviation $ \sigma $, which corresponds to the expected squared deviation from the mean. Mean, $ \mu $ controls the Gaussian's center position and the standard deviation controls the shape of the distribution. The square of the standard deviation is referred to as the variance $ \sigma^{2} $. The entire distribution is denoted as $\N(\mu,\sigma^{2}) $.
 # Given the mean and variance, one can calculate the probability distribution function of nomral distributions with a normalised Gaussian function for a value $x$, the density is:
@@ -25,7 +25,7 @@
 # P(x|\mu,\sigma^{2}) = \frac{1} {\sqrt{2\pi\sigma^{2} }} exp(-\frac{(x - \mu^{2})}{2\sigma^{2}})
 # $$
 #
-# We call this distriution univariate because it consists of one random variable.
+# We'll call this distriution "univariate" as it consists of one __random__ variable.
 #
 
 # +
@@ -38,13 +38,11 @@ import seaborn as sns
 
 mpl.rcParams["figure.figsize"] = (10, 6)
 # mpl.rcParams['figure.fontsize'] = 13
-plt.style.use(["seaborn-notebook", "./presentation.mplstyle"])  # jupyter version
+plt.style.use(["seaborn-notebook", "../presentation.mplstyle"])  # jupyter version
 
 # with plt.style.context('presentation'):
 #     plt.plot([1, 2, 3, 4])
 # Context Manager version
-
-
 
 
 def univariate_normal(x, mean, variance):
@@ -54,6 +52,9 @@ def univariate_normal(x, mean, variance):
 
 # plotting different univariate Normals
 x = np.linspace(-3, 5, num=150)
+
+# NOTE: Create a func to make this plt code less verbose & cleaner.
+
 plt.plot(x, univariate_normal(x, mean=0, variance=1), label="$N(0, 1)$")
 plt.plot(x, univariate_normal(x, mean=0, variance=0.2), label="$N(0, 0.2)$")
 plt.plot(x, univariate_normal(x, mean=2, variance=3), label="$N(2, 3)$")
@@ -64,9 +65,7 @@ plt.ylim([0, 1])
 plt.xlim([-3, 5])
 plt.legend(loc=1)
 fig = plt.subplots_adjust(bottom=0.15)
-plt.savefig("univariate_normal_distributions.png")
-
-
+# plt.savefig("univariate_normal_distributions.png")
 # -
 
 # ### <center>Multivariate Normal Distribution</center>
@@ -245,7 +244,7 @@ plt.savefig("Bivariate_normal_distributions")
 # \end{split}
 # $$
 #
-# and then simply so $Y = \sim N(a\mu + b, a^{2}\sigma^{2})$.
+# and then simply so $Y =  \sim N(a\mu + b, a^{2}\sigma^{2})$.
 #
 
 # ### <center>Affine transformation of Multivariate Normal Functions</center>
@@ -281,7 +280,7 @@ plt.savefig("Bivariate_normal_distributions")
 # ### <center>Sampling from a Multivariate Normal Distribution</center>
 #
 # Previous formula helps us to sample from any multivariate Gaussian distribution.
-# In order to do this, sample $X$ from $ N(0, I*{d})$ where mean is the vector $\mu = 0$ and the variance-covariance matrix is the identity matrix $\Sigma*{X} = I\_{d}$ (standard multivariate normal distribution). Sampling from this distribution is easier because each variable in $X$ is independent from all other variables, we can just sample each variable separately.
+# In order to do this, sample $X$ from $ N(0, I*{d})$ where mean is the vector $\mu = 0$ and the variance-covariance matrix is the identity matrix $\Sigma*{X} = I_{d}$ (standard multivariate normal distribution). Sampling from this distribution is easier because each variable in $X$ is independent from all other variables, we can just sample each variable separately.
 #
 # Its then possible to sample $Y$ from $N(\mu_{Y}, \Sigma{Y})$ by sampling $X$ and applying the affine transformation on said samples. This transform is $Y = LX + u$ where we know the covariance of Y is $\Sigma_{Y} = L \Sigma{X} L^{T}$. Since $\Sigma_{X} = I_{d}$, we can write $\Sigma_{Y} = L \Sigma_{X} L^{T} = L I_{d} L^{T} = L L^{T}$. $L$ can be found by a technique called Cholesky decomposition. The vector $u$ is then $\mu_{Y}$ since $\mu_{X} = 0$ ($u = \mu_{Y} - L \mu_{X}$).
 #
@@ -335,7 +334,7 @@ ax.plot(Y[0, :], Y[1, :], "ro", alpha=0.6, markeredgecolor="k", markeredgewidth=
 ax.set_xlabel("$y_1$", fontsize=13)
 ax.set_ylabel("$y_2$", fontsize=13)
 ax.axis([-2.5, 2.5, -1.5, 3.5])
-ax.set_aspect("equal")
+ax.set_aspect("auto")
 ax.set_title("Samples from bivariate normal distribution")
 cbar = plt.colorbar(con)
 cbar.ax.set_ylabel("density: $p(y_1, y_2)$", fontsize=13)
@@ -448,8 +447,6 @@ cbar.ax.set_ylabel("density: $p(x, xy)$", fontsize=13)
 plt.savefig("marginal_normal_distributions")
 # -
 
-#
-
 # ## <center>What are the Different types of Covariance Matrices?</center>
 #
 # Couple of examples of covariance structures that could be specified for multivariate Gaussian distributions.
@@ -477,6 +474,8 @@ for i in range(3):
     plt.ylim([-4, 4])
 
 plt.show()
+
+
 # -
 
 # One way to view a gaussian distribution in two dimensions is via a contour plot (see above). The coloring represents the regions intensity, or how high it was in probability.
@@ -538,6 +537,10 @@ plt.show()
 #
 
 #
+# ---
+#
+# ---
+#
 
 # ---
 #
@@ -577,8 +580,10 @@ plt.show()
 # Let $U \sim U(0, 1)$. Then $F(X) = U$ means that the random variable $F^{-1}(U)$ has the same distribution as $X$.
 #
 
-# ## Inverse transform sampling
+# <center>Inverse Transform Sampling</center>
 #
+#
+
 # It is a basic method for pseudo-random number sampling, i.e. for generating sample numbers at random from any probability distribution given its cumulative distribution function. The basic principle is to find the inverse function of $F$, $F^{-1}$ such that $F F^{-1} = F^{-1} F = I$.
 #
 # The problem that the inverse transform sampling method solves is as follows:
@@ -618,7 +623,7 @@ plt.show()
 # ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-06%20at%2019.45.52.png?raw=true)
 #
 
-# ## Continuous Example: Exponential Distribution
+# ## <center>Continuous Example: Exponential Distribution</center>
 #
 # The exponential distribution has CDF:
 #
@@ -648,9 +653,6 @@ plt.show()
 # x = F^{-1}_X(x) = \frac{-1}{\lambda}ln(u)
 # $$
 #
-
-print(plt.style.available)
-
 
 # +
 def inverse_exp_dis(lmbda=1.0):
@@ -685,7 +687,7 @@ plt.savefig("np_random_exponential_dist", format="svg")
 # ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/z_table.png?raw=true)
 #
 
-# If we are willing to accept numeric solution, inverse functions can be found. One of the inverse CDF of the standard normal distribution was proposed by Schmeiser:
+# If you're willing to accept numeric solution, inverse functions can be found. One of the inverse CDF of the standard normal distribution was proposed by Schmeiser:
 #
 # $$
 # Z = \Phi^{-1}(U) \approx \frac{U^{0.135} - (1 - U)^{0.135}} {0.1975}
@@ -716,23 +718,43 @@ plt.savefig("np_random_exponential_dist", format="svg")
 # because $\Phi^{-1}(0.59) = Z \rightarrow \Phi(Z) = P(Z \leq Z) = 0.59$. What is this $Z$? Using a [online calculator](https://stattrek.com/online-calculator/normal), it is $0.2275$.
 #
 
+import seaborn as sns
+
+
+
 # +
+## REDO THIS CELL
 n = 10_000
 mean = 3
 variance = 16
 Z = np.random.normal(loc=0, scale=1.0, size=(n,))
-X = mean + (sqrt(variance) * Z)
+X = mean + (np.sqrt(variance) * Z)
 
 # print(f"mu = {mean(X)}")
 print(np.mean(X))
 
 # print(f"std = {std(X)}")
-print(std(X))
+print(np.std(X))
 
-count, bins, ignored = plt.hist(X, 30, normed=True)
+# count, bins, ignored = plt.hist(X, 30, normed = True)
+bins = 30
+# count = plt.hist(X, bins)
+# count= sns.displot((X, bins),)
+# count, bins, ignored = plt.hist(X, 
 
-# count, bins, ignored = axs[0].hist(X, bins = 30)
+sns.displot(data=(X, bins, univariate_normal(bins, mean, variance)), kde = True)
+
 plt.plot(bins, univariate_normal(bins, mean, variance), linewidth=2, color="r")
-plt.savefig("generated_normal_distribution", format="svg")
-# plt.show()
+# plt.savefig("generated_normal_distribution", format="svg")
+plt.show()
 # -
+
+# <center>Box-Muller Method</center>
+#
+# Consider a more direct & exact transformation w/ the BM Method. Let $Z_{1}$ and $Z_{2}$ be two standard normal random variables. Plotting the two as apoint in the plane, represented in a polar coordinate system as $Z_{1}$  = $B \cos\theta$ and $Z_{2}$ = $B \sin\theta$.
+#
+# It's known that $B^{2}$ = $Z_{1}^{2} + Z_{2}^{2}$ has the chi-square distribution with 2 degrees of freedom, which is equivalent to an exponential distribution with mean 2. This comes from the fact that if one has k i.i.d normal random variables where $X_i$ $\sim$ $N(0, \sigma^{2})$, sum of squares of those random variables, $X_{1}^{2}$ + $X_{2}^{2}$ + ... + $X_{k}^{2}$ $\sim$ $\sigma^{2}X_{k}^{2}$:
+#
+# $Y = $ \lambda$ $e^{\neg\lambda t}$, t \greaterthan \zero$
+
+#
