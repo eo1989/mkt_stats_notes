@@ -18,8 +18,15 @@
 
 # ### <center>Univariate Normal Distributions</center>
 #
-# The normal distribution (Gaussain Distribution) is defined by two parameters: mean $ \mu $, which is the expected value of the distribution and standard deviation $ \sigma $, which corresponds to the expected squared deviation from the mean. Mean, $ \mu $ controls the Gaussian's center position and the standard deviation controls the shape of the distribution. The square of the standard deviation is referred to as the variance $ \sigma^{2} $. The entire distribution is denoted as $\N(\mu,\sigma^{2}) $.
-# Given the mean and variance, one can calculate the probability distribution function of nomral distributions with a normalised Gaussian function for a value $x$, the density is:
+# The normal distribution (Gaussain Distribution) is defined by two parameters: mean
+# $\mu$, which is the expected value of the distribution and standard deviation
+# $\sigma$, which corresponds to the expected squared deviation from the mean.
+# Mean, $\mu$ controls the Gaussian's center position and the standard deviation
+# controls the shape of the distribution. The square of the standard deviation is
+# referred to as the variance $\sigma^{2}$. The entire distribution is denoted as
+# $\N(\mu,\sigma^{2})$. Given the mean and variance, one can calculate the probability
+# distribution function of nomral distributions with a normalised Gaussian function
+# for a value $x$, the density is:
 #
 # $$
 # P(x|\mu,\sigma^{2}) = \frac{1} {\sqrt{2\pi\sigma^{2} }} exp(-\frac{(x - \mu^{2})}{2\sigma^{2}})
@@ -38,7 +45,8 @@ import seaborn as sns
 
 mpl.rcParams["figure.figsize"] = (10, 6)
 # mpl.rcParams['figure.fontsize'] = 13
-plt.style.use(["seaborn-notebook", "../presentation.mplstyle"])  # jupyter version
+plt.style.use(["seaborn-notebook",
+               "../presentation.mplstyle"])  # jupyter version
 
 # with plt.style.context('presentation'):
 #     plt.plot([1, 2, 3, 4])
@@ -47,7 +55,8 @@ plt.style.use(["seaborn-notebook", "../presentation.mplstyle"])  # jupyter versi
 
 def univariate_normal(x, mean, variance):
     """pdf of the univariate normal distribution."""
-    return (1.0 / sqrt(2 * pi * variance)) * exp(-((x - mean) ** 2) / (2 * variance))
+    return (1.0 / sqrt(2 * pi * variance)) * exp(-((x - mean)**2) /
+                                                 (2 * variance))
 
 
 # plotting different univariate Normals
@@ -85,14 +94,13 @@ fig = plt.subplots_adjust(bottom=0.15)
 # where $\mathbf{x}$ is a random vector of size $d$, $\mu$ is $d \times 1$ mean vector and $\Sigma$ is the (symmetric and positive definite) covariance matrix of size $d$ \times $d$ and $\lvert \Sigma \rvert$ is the determinant. We denote this multivariate normal distribution as $N(\mu, \Sigma)$.
 #
 
+
 def multivariate_normal(x, d, mean, covariance):
     """pdf of the multivariate normal distribution."""
     x_m = x - mean
-    return (
-        1.0
-        / (sqrt((2 * pi) ** d * np.linalg.det(covariance)))
-        * exp(-(np.linalg.solve(covariance, x_m).T.dot(x_m)) / 2)
-    )
+    return (1.0 / (sqrt((2 * pi)**d * np.linalg.det(covariance))) *
+            exp(-(np.linalg.solve(covariance, x_m).T.dot(x_m)) / 2))
+
 
 # Plotting a multivariate distribution of more than 2 variables may be difficult. So, lets look at an example of a bivariate normal distribution.
 #
@@ -155,9 +163,9 @@ def gen_surface(mean, covariance, d):
     # fill the cost matrix for ea combination of weights
     for i in range(nb_of_x):
         for j in range(nb_of_x):
-            pdf[i, j] = multivariate_normal(
-                np.matrix([[x1[i, j]], [x2[i, j]]]), d, mean, covariance
-            )
+            pdf[i,
+                j] = multivariate_normal(np.matrix([[x1[i, j]], [x2[i, j]]]),
+                                         d, mean, covariance)
     return x1, x2, pdf  # x1, x2, pdf(x1, x2)
 
 
@@ -165,13 +173,11 @@ def gen_surface(mean, covariance, d):
 fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 d = 2  # number of dimensions
 
-
 # plot independent Normals
 bivariate_mean = np.matrix([[0.0], [0.0]])  # Mean
 bivariate_covariance = np.matrix([[1.0, 0.8], [0.8, 1.0]])  # Covariance
 
 x1, x2, p = gen_surface(bivariate_mean, bivariate_covariance, d)
-
 
 # plot bivariate distribution
 con = ax1.contourf(x1, x2, p, 100, cmap="rainbow")
@@ -181,12 +187,10 @@ ax1.axis([-2.5, 2.5, -2.5, 2.5])
 ax1.set_aspect("equal")
 ax1.set_title("Independent Variables")
 
-
 # plot of correlated Normals
 bivariate_mean = np.matrix([[0.0], [1.0]])  # Mean
 bivariate_covariance = np.matrix([[1.0, 0.8], [0.8, 1.0]])  # Covariance
 x1, x2, p = gen_surface(bivariate_mean, bivariate_covariance, d)
-
 
 # plot bivariate distribution for correlated Normals
 con = ax2.contourf(x1, x2, p, 100, cmap="rainbow")
@@ -195,7 +199,6 @@ ax2.set_ylabel("$x_2$")
 ax2.axis([-2.5, 2.5, -2.5, 2.5])
 ax2.set_aspect("equal")
 ax2.set_title("Correlated Variables")
-
 
 # add colorbar and title
 fig.subplots_adjust(right=0.8)
@@ -323,14 +326,18 @@ print(np.shape(X))
 # +
 Y = L.dot(X) + mean
 
-
 # Plot the samples and the distribution
 fig, ax = plt.subplots(figsize=(6, 4.5))
 # Plot bivariate distribution
 x1, x2, p = gen_surface(mean, covariance, d)
 con = ax.contourf(x1, x2, p, 100, cmap="rainbow")
 # Plot samples
-ax.plot(Y[0, :], Y[1, :], "ro", alpha=0.6, markeredgecolor="k", markeredgewidth=0.5)
+ax.plot(Y[0, :],
+        Y[1, :],
+        "ro",
+        alpha=0.6,
+        markeredgecolor="k",
+        markeredgewidth=0.5)
 ax.set_xlabel("$y_1$", fontsize=13)
 ax.set_ylabel("$y_2$", fontsize=13)
 ax.axis([-2.5, 2.5, -1.5, 3.5])
@@ -456,7 +463,7 @@ plt.savefig("marginal_normal_distributions")
 from scipy.stats import multivariate_normal
 
 x, y = np.mgrid[-4:4:0.01, -4:4:0.01]
-position = np.empty(x.shape + (2,))
+position = np.empty(x.shape + (2, ))
 position[:, :, 0] = x
 position[:, :, 1] = y
 
@@ -474,7 +481,6 @@ for i in range(3):
     plt.ylim([-4, 4])
 
 plt.show()
-
 
 # -
 
@@ -654,6 +660,7 @@ plt.show()
 # $$
 #
 
+
 # +
 def inverse_exp_dis(lmbda=1.0):
     return (-1 / lmbda) * log(1 - random.random())
@@ -720,14 +727,12 @@ plt.savefig("np_random_exponential_dist", format="svg")
 
 import seaborn as sns
 
-
-
 # +
 ## REDO THIS CELL
 n = 10_000
 mean = 3
 variance = 16
-Z = np.random.normal(loc=0, scale=1.0, size=(n,))
+Z = np.random.normal(loc=0, scale=1.0, size=(n, ))
 X = mean + (np.sqrt(variance) * Z)
 
 # print(f"mu = {mean(X)}")
@@ -740,9 +745,9 @@ print(np.std(X))
 bins = 30
 # count = plt.hist(X, bins)
 # count= sns.displot((X, bins),)
-# count, bins, ignored = plt.hist(X, 
+# count, bins, ignored = plt.hist(X,
 
-sns.displot(data=(X, bins, univariate_normal(bins, mean, variance)), kde = True)
+sns.displot(data=(X, bins, univariate_normal(bins, mean, variance)), kde=True)
 
 plt.plot(bins, univariate_normal(bins, mean, variance), linewidth=2, color="r")
 # plt.savefig("generated_normal_distribution", format="svg")
