@@ -1,14 +1,15 @@
 # %%
 import datetime as dt
 import time
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import statsmodels as sm
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
+import seaborn as sns
+import statsmodels as sm
 
 pd.options.plotting.backend = "plotly"
 pio.templates.default = 'plotly_dark'

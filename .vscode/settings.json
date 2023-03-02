@@ -1,4 +1,7 @@
 {
 	"editor.insertSpaces": false,
-	"vim.joinspaces": false
+	"vim.joinspaces": false,
+	"python.linting.flake8Enabled": true,
+	"python.linting.pylintEnabled": false,
+	"python.linting.enabled": false
 }

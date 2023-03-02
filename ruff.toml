@@ -1,0 +1,39 @@
+[tool.ruff]
+exclude = [
+    ".tox",
+    ".venv",
+    ".vim",
+    ".virtual_documents",
+    "build",
+    "dist",
+    "*migrations*",
+    ".pytest_cache",
+    ".git",
+    "__pycache__",
+    ".mypy_cache",
+    ".ipynb_checkpoints",
+    ".vscode",
+    ".hypothesis",
+]
+ignore = [
+    "D203",
+    "E40",
+    "E501",
+    "F401",
+    "F403",
+    "F406",
+    "F821",
+    "W2",
+]
+line-length = 88
+select = [
+    "B",
+    "C",
+]
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
