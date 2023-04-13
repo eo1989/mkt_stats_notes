@@ -16,7 +16,7 @@ import itertools as itr
 # %%
 # This is bad. Do not do it this way. us pandas instead of str manipulation.
 df2 = pd.read_csv("data/spy_3.csv", sep='\s+', header=None, skiprows=0)
-df2.head()
+df2.head(10)
 
 # %%
 df2.columns = ['FirstCol']
@@ -24,6 +24,7 @@ spot_price = df2['FirstCol'][0].split(',')[2]
 spot_price
 
 # %%
-spot_price = float(spot_price.split('Last: ')[1])
+spot_price = float(spot_price.split('Last:')[])
+spot_price
 
 # %%
