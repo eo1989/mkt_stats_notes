@@ -50,6 +50,7 @@ def opt(S: float, K: float, r: float, sigma: float, ttm: float, c_or_p: str) -> 
 # %%
 """
 Option price w/ respect to underlying:
+
 \delta = \frac{\partial V}{\partial S}
 \gamma = \frac{\partial^2 V}{\partial S^2}
 
@@ -72,13 +73,62 @@ plt.axvline(x = 50, ls = '-', c = 'black')
 #%%
 """
 Option Price w.r.t. strike:
+# TODO redo this as long calls go higher with increase in underlying.
 """
-s = [i for i in range(1, 101)]
-k = [i for i in range(1, 101)]
-c = [opt(S = 50, K = i, r = 0.05, sigma = 0.3, ttm = 1, c_or_p = "call") for i in range(1, 101)]
-p = [opt(S = 50, K = i, r = 0.05, sigma = 0.3, ttm = 1, c_or_p = "put") for i in range(1, 101)]
+# s = [i for i in range(1, 101)]
+# k = [i for i in range(1, 101)]
+# c = [opt(S = 50, K = i, r = 0.05, sigma = 0.3, ttm = 1, c_or_p = "call") for i in range(1, 101)]
+# p = [opt(S = 50, K = i, r = 0.05, sigma = 0.3, ttm = 1, c_or_p = "put") for i in range(1, 101)]
 
-df = pd.DataFrame(data = {'Underlying': s, 'Strike': k, 'Call': c, 'Put': p})
+# df = pd.DataFrame(data = {'Underlying': s, 'Strike': k, 'Call': c, 'Put': p})
 # %%
-sns.lineplot(data = df, x = 'Strike', y = 'Call', color = 'green')
-plt.axvline(x = 50, ls = '-', c = 'black')
+# sns.lineplot(data = df, x = 'Strike', y = 'Call', color = 'green')
+# plt.axvline(x = 50, ls = '-', c = 'black')
+# %%
+# sns.lineplot(data = df, x = 'Strike', y = 'Put', color = 'red')
+# plt.axvline(x = 50, ls = '-', c = 'black')
+# %%
+"""
+Options w.r.t time to maturity
+"""
+t = np.linspace(start = 0, stop = 5, num = 100)
+c = [opt(S = 50, K = 50, r = 0.05, sigma = 0.30, ttm = t[i], c_or_p="call") for i in range(0, len(t))]
+p = [opt(S = 50, K = 50, r = 0.05, sigma = 0.30, ttm = t[i], c_or_p="put") for i in range(0, len(t))]
+
+fig, axes = plt.subplots(2, 1)
+
+df = pd.DataFrame(data = {'T': t, 'Call': c, 'Put': p})
+sns.lineplot(data = df, x = 'T', y = 'Call', color = 'green', ax = axes[1])
+sns.lineplot(data = df, x = 'T', y = 'Put', color = 'red', ax = axes[0])
+
+
+# %%
+
+"""
+Options w.r.t to vol
+"""
+vol = np.linspace(start = 0, stop = 1.5, num = 100)
+c = [opt(S = 50, K = 50, r = 0.05, sigma = vol[i], ttm = 1, c_or_p="call") for i in range(0, len(vol))]
+p = [opt(S = 50, K = 50, r = 0.05, sigma = vol[i], ttm = 1, c_or_p="put") for i in range(0, len(vol))]
+
+fig, axes = plt.subplots(2, 1)
+
+df = pd.DataFrame(data = {'Vol': vol, 'Call': c, 'Put': p})
+sns.lineplot(data = df, x = 'Vol', y = 'Call', color = 'g', ax = axes[1])
+sns.lineplot(data = df, x = 'Vol', y = 'Put', color = 'r', ax = axes[0])
+
+# %%
+"""
+Options w.r.t to the risk-free rate
+"""
+rate = np.linspace(0, 0.2, num = 100)
+c = [opt(S = 50, K = 50, r = rate[i], sigma = 0.3, ttm = 1, c_or_p="call") for i in range(0, 100)]
+p = [opt(S = 50, K = 50, r = rate[i], sigma = 0.3, ttm = 1, c_or_p="put") for i in range(0, 100)]
+
+fig, axes = plt.subplots(2, 1)
+
+df = pd.DataFrame(data = {'Risk-free Rate': rate, 'Call': c, 'Put': p})
+sns.lineplot(data = df, x = 'Risk-free Rate', y = 'Call', color = 'g',
+             ax = axes[1]   )
+sns.lineplot(data = df, x = 'Risk-free Rate', y = 'Put', color = 'r', ax = axes[0])
+# %%

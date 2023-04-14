@@ -1,9 +1,10 @@
+
 ---
 title: "functional programming 2E py310"
 format:
 	html:
 		code-fold: true
-# jupyter: python3
+jupyter: python3
 ---
 ```{python}
 #| label: fig-polar
@@ -19,15 +20,15 @@ ax.plot(theta, r)
 ax.set_rticks([0.5, 1, 1.5, 2])
 ax.grid(True)
 plt.show()
-```
-# it works!
+ ```
 
 
- Functional Python Programming - Use a functional approach to write succinct, expressive, & efficient Python(2022, 3E, Pact).pdf
- p.4
- Comparing & contrasting proceduarl and functional styles:
 
- Procedural:
+# Functional Python Programming - Use a functional approach to write succinct, expressive, & efficient Python(2022, 3E, Pact).pdf
+ pg.4
+## Comparing & contrasting proceduarl and functional styles:
+
+### Procedural:
  The sum computed by this fx include only numbers that are multiples of 3 or 5.
  this fx is strictly procedural, avoiding explicit python object features.
  Functions state is defined by the values of the variables s and n.
@@ -129,23 +130,23 @@ def sum_hybrid(limit: int = 10) -> int:
  it produces a set of values {n|1<= n < 10∧(𝑛 ≡ 0 mod 3∨𝑛 ≡ 0 mod 5)}
  can be described as "values of n such that n is less than or equal to n and n is less than 10 and n is equivalent to 0 modulo 3 or n is equivalent to 0 modulo 5"
  the variable n is bound, in turn, to each of the values provided by the range object. the sum fx consumes the iterable values, creating a final object, 23.
- * The bound variable, n, doesnt exist outside the generator expression. The variable n isnt visible elsewhere in the program.
- * a 'for' statement (outside the generator expression) creates a proper variable in the local namespace.
- * the generator expression doesnt create a variable in the same way that a 'for' statement does:
+   * The bound variable, n, doesnt exist outside the generator expression. The variable n isnt visible elsewhere in the program.
+   * a 'for' statement (outside the generator expression) creates a proper variable in the local namespace.
+   * the generator expression doesnt create a variable in the same way that a 'for' statement does:
 ```{python}
 sum(n for n in range(1, 10) if n % 3 == 0 or n % 5 == 0)
 ```
 
- - returns NameError: name 'n' isnt defined.
- * The generator expression doesnt pollute the namespace with variables, like n, which arent relevant
- * outside the very narrow context of the expression.
- * Ch 1, pg 10.
- The functional programs in this book will rely on the following 3 stacks of abstractions:
- * Applications will be functions - all the way down - until you hit the objects.
- ** The underlying python runtime environment that supports the functional programming is objects - all the way down - until you hit the libraries.
- *** The libraries that suppport python are a turtle on which Python stands.
+ -- returns NameError: name 'n' isnt defined.
+   * The generator expression doesnt pollute the namespace with variables, like n, which arent relevant
+   * outside the very narrow context of the expression.
+   * Ch 1, pg 10.
+ 	The functional programs in this book will rely on the following 3 stacks of abstractions:
+   * Applications will be functions - all the way down - until you hit the objects.
+ 	** The underlying python runtime environment that supports the functional programming is objects - all the way down - until you hit the libraries.
+ 	*** The libraries that suppport python are a turtle on which Python stands.
 
- * Newton-Raphson algorithm for locating any roots of a function.
+   * Newton-Raphson algorithm for locating any roots of a function.
  define function that will compute a square root of a number.
  backbone of this approximation is the calculation of the next approximation from the current approximation.
  the next_() function takes x, an approximation to the sqrt(n) value, and calculates the next value that brackets the proper root.
@@ -214,6 +215,7 @@ the source data file. The data must be cleansed to have the following two ZIP fo
 •    Five characters with no post-office box, for example 03801
 •    Ten characters with a hyphen, for example 03899-9876
 
+(pg.21)
 ```{python}
 from collections import Counter
 import csv
@@ -245,3 +247,64 @@ def main(source_path: Path = DEFAULT_PATH) -> None:
 if __name__ == "__main__":
 	main()
 ```
+It can be refactored (tangled also so that quarto works with it) into two parts.
+new `zip_histogram()` should be written to contain much of the processing detail. The func will process the opened file, returning a Counter object.
+```{python}
+def zip_histogram(reader: csv.DictReader[str]) -> Counter[str]:
+	pass
+```
+1. The `main()` func is left with the responsibility to open the file, create the csv.DictReader instance, eval `zip_histogram()`, and print the histogram.
+2. Once the zip_histogram function is defined, the cleansing of the ZIP attribute can be refactored into separate functions, with a name like `zip_cleanse()`. Instead of setting the value of the `text_zip` variable, this function can return a cleansed result. This can then be tested separately to be sure the various cases are handled gracefully.
+3. The distinction between long ZIP codes with a hyphen and without is something that should be fixed. Once 'cleansed' works, note: add another function to inject hyphens into ZIP codes with only digits. ex: transforming 39011345 to 3901-1345.
+The final zip function should look like:
+
+```{python}
+def zip_histogram(reader: csv.DictReader[str]) -> Counter[str]:
+	return Counter(zip_cleanse(row['ZIP']) for row in reader)
+```
+
+
+# Chapter 2: Essential Functional Concepts
+## Functions as First-class objects && Immutable data
+
+```{python}
+def example(a, b, **kwargs):
+	return a * b
+
+print(type(example))
+print(example.__code__.co_varnames)
+print(example.__code__.co_argcount)
+```
+- The `__code__` *attribute* of the function object has attributes of its own. Functions can be manipulated like all other objects.
+- Pure functions are easier to test and are conceptually simpler.
+  - Write local-only code. Meaning avoid all *global* statements.
+
+```{python}
+mersenne = lambda x: 2**x - 1
+mersenne(17)
+# 131071
+
+default_zip = lambda row: row.setdefault('ZIP', '00000')
+
+r_0 = {'CITY': 'Vaca Key'}
+default_zip(r_0)
+r_0 # {'CITY': 'Vaca Key', 'ZIP': '00000'}
+
+r_1 = {'CITY': 'Sterling Heights', 'ZIP': '48310'}
+default_zip(r_1) # 49310
+
+```
+ ### Higher-order Functions
+ Functions that accept a function as an *argument* or return a function as a value. Leading to composite functions.
+
+ ```{python}
+ year_cheese = [(200, 29.87), (2001, 30.12), (2002, 30.6), (2003, 30.66), (2004, 31.33),
+(2005, 32.62), (2006, 32.73), (2007, 33.5),
+(2008, 32.84), (2009, 33.02), (2010, 32.92)]
+
+max(year_cheese)
+
+max(year_cheese, key = lambda yc: yc[1]) # (2007, 33.5)
+ ```
+In this example `max()` applies a lambda and returns the tuple with the largest value in position one of each tuple.
+* Chapter 5 has more information on higher-order functions.
