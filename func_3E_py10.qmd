@@ -1,9 +1,8 @@
-
 ---
 title: "functional programming 2E py310"
 format:
-	html:
-		code-fold: true
+    html:
+        code-fold: true
 jupyter: python3
 ---
 ```{python}
@@ -20,9 +19,7 @@ ax.plot(theta, r)
 ax.set_rticks([0.5, 1, 1.5, 2])
 ax.grid(True)
 plt.show()
- ```
-
-
+```
 
 # Functional Python Programming - Use a functional approach to write succinct, expressive, & efficient Python(2022, 3E, Pact).pdf
  pg.4
@@ -41,25 +38,25 @@ plt.show()
 
 ```{python}
 def sum_numeric(limit: int = 10) -> int:
-	s = 0
-	for i in range(1, limit):
-		if n % 3 == 0 or n % 5 == 0:
-			s += n
-	return s
+    s = 0
+    for i in range(1, limit):
+        if n % 3 == 0 or n % 5 == 0:
+            s += n
+    return s
 ```
 
- Look at this from a purely functional perspective. Then examine more pythonic perspective that retains the essence
- of a functional approach while leveraging a number of Pythons features.
- The sum of the multples of 3 and 5 can be decomposed into two parts:
+Look at this from a purely functional perspective. Then examine more pythonic perspective that retains the essence
+of a functional approach while leveraging a number of Pythons features.
+The sum of the multples of 3 and 5 can be decomposed into two parts:
  - The sum of a sequence of numbers.
  - A sequence of values that pass a simple test condition, for example, being multiples of 3 and 5.
- The sum of a sequence has a recursive definition.
+The sum of a sequence has a recursive definition.
 ```{python}
 from collections.abc import Sequence
 def sumr(seq: Sequence[int]) -> int:
-	if len(seq) == 0:
-		return 0
-	return seq[0] + sumr(seq[1:])
+    if len(seq) == 0:
+        return 0
+    return seq[0] + sumr(seq[1:])
 ```
 
 ```{python}
@@ -87,12 +84,12 @@ values computed by the until() function.
 from collections.abc import Sequence, Callable
 
 def until(limit: int, filter_func: Callable[[int], bool], v: int) ->list[int]:
-	if v >= limit:
-		return []
-	elif filter_func(v):
-		return [v] + until(limit, filter_func, v + 1)
-	else:
-		return until(limit, filter_func, v + 1)
+    if v >= limit:
+        return []
+    elif filter_func(v):
+        return [v] + until(limit, filter_func, v + 1)
+    else:
+        return until(limit, filter_func, v + 1)
 ```
 You can see that the value of v will increase from an initial val until it reaches limit, assuring
 us that we'll reach the base case.
@@ -100,7 +97,7 @@ Before using the until() function, define a small fx to filter values that are m
 
 ```{python}
 def mult_3_5(x: int) -> bool:
-	return x % 3 == 0 or x % 5 == 0
+    return x % 3 == 0 or x % 5 == 0
 ```
  couldve also been defined as a lambda object to emphasize succinct definitions of simple functions.
 
@@ -113,16 +110,16 @@ until(10, mult_3_5, 0)
  combining sumr() and until() to compute a sum of values:
 ```{python}
 def sum_functional(limit: int = 10) -> int:
-	return sumr(until(limit, mult_3_5, 0))
+    return sumr(until(limit, mult_3_5, 0))
 ```
  Its a purely functional, recursive definition that matches the mathematical abstractions. making it easier to reason about.
  functional hybrid
 ```{python}
 def sum_hybrid(limit: int = 10) -> int:
-	return sum(
-		n for n in range(1, limit)
-		if n % 3 == 0 or n % 5 == 0
-	)
+    return sum(
+        n for n in range(1, limit)
+        if n % 3 == 0 or n % 5 == 0
+    )
 ```
  generator expression to iterate through a collection of values and compute the sum of these values.
  the range(1, 10) object is an iterable; it generates a sequence of values {n|1<= n < 10}.
@@ -131,8 +128,8 @@ def sum_hybrid(limit: int = 10) -> int:
  can be described as "values of n such that n is less than or equal to n and n is less than 10 and n is equivalent to 0 modulo 3 or n is equivalent to 0 modulo 5"
  the variable n is bound, in turn, to each of the values provided by the range object. the sum fx consumes the iterable values, creating a final object, 23.
    * The bound variable, n, doesnt exist outside the generator expression. The variable n isnt visible elsewhere in the program.
-   * a 'for' statement (outside the generator expression) creates a proper variable in the local namespace.
-   * the generator expression doesnt create a variable in the same way that a 'for' statement does:
+   * A 'for' statement (outside the generator expression) creates a proper variable in the local namespace.
+   * The generator expression doesnt create a variable in the same way that a 'for' statement does:
 ```{python}
 sum(n for n in range(1, 10) if n % 3 == 0 or n % 5 == 0)
 ```
@@ -141,10 +138,10 @@ sum(n for n in range(1, 10) if n % 3 == 0 or n % 5 == 0)
    * The generator expression doesnt pollute the namespace with variables, like n, which arent relevant
    * outside the very narrow context of the expression.
    * Ch 1, pg 10.
- 	The functional programs in this book will rely on the following 3 stacks of abstractions:
+     The functional programs in this book will rely on the following 3 stacks of abstractions:
    * Applications will be functions - all the way down - until you hit the objects.
- 	** The underlying python runtime environment that supports the functional programming is objects - all the way down - until you hit the libraries.
- 	*** The libraries that suppport python are a turtle on which Python stands.
+     * The underlying python runtime environment that supports the functional programming is objects - all the way down - until you hit the libraries.
+     * The libraries that suppport python are a turtle on which Python stands.
 
    * Newton-Raphson algorithm for locating any roots of a function.
  define function that will compute a square root of a number.
@@ -177,8 +174,8 @@ a0 = 1.0
 from collections.abc import Iterator, Callable
 
 def repeat(f: Callable[[float], float], a: float) -> Iterator[float]:
-	yield a
-	yield from repeat(f, f(a))
+    yield a
+    yield from repeat(f, f(a))
 ```
 This function will generate a sequence of approximations using a function $f()$ and an initial approximation $a$.
 
@@ -188,12 +185,12 @@ This function will generate a sequence of approximations using a function $f()$ 
 ```{python}
 from collections.abc import Iterator
 def within(𝜖: float, iterable: Iterator[float]) -> float:
-	def head_tail(𝜖: float, a: float, iterable: Iterator[float]) -> float:
-		b = next(iterable)
-		if abs(a - b) <= 𝜖:
-			return b
-		return head_tail(𝜖, b, iterable)
-	return head_tail(𝜖, next(iterable), iterable)
+    def head_tail(𝜖: float, a: float, iterable: Iterator[float]) -> float:
+        b = next(iterable)
+        if abs(a - b) <= 𝜖:
+            return b
+        return head_tail(𝜖, b, iterable)
+    return head_tail(𝜖, next(iterable), iterable)
 ```
 
 
@@ -201,7 +198,7 @@ Using the three functions, next_(), repeat(), and within(), to create a square r
 
 ```{python}
 def sqrt(n: float) -> float:
-	return within(𝜖 = 0.0001, iterable = repeat(lambda x: next_(n, x), 1.0))
+    return within(𝜖 = 0.0001, iterable = repeat(lambda x: next_(n, x), 1.0))
 ```
 A more advanced version could use default param values to make changes possible. Exercise:
 the definition of `sqrt()` should be rewritten so an expression such as `sqrt(1.0, 0.000_01, 3)` will start with an approximation of 1.0 and compute the value of $\sqrt{3}$ to within 0.000_01. For most applications, the initial a_{0} value can be 1.0. The closer it is to the actual square root, the more rapidly this algorithm converges.
@@ -224,34 +221,34 @@ from pathlib import Path
 DEFAULT_PATH = Path.cwd() / "address.csv"
 
 def main(source_path: Path = DEFAULT_PATH) -> None:
-	freq: Counter[str] = Counter()
-	with source_path.open() as source:
-		rdr = csv.DictReader(source)
-		for row in rdr:
-			if "-" in row['ZIP']:
-				text_zip = row['ZIP']
-				missing_zeros = 10 - len(text_zip)
-				if missing_zeros:
-					text_zip = missing_zeros * '0' + text_zip
-			else:
-				text_zip = row['ZIP']
-				if 5 < len(row['ZIP']) < 9:
-					missing_zeros = 9 - len(text_zip)
-				else:
-					missing_zeros = 5 - len(text_zip)
-				if missing_zeros:
-					text_zip = missing_zeros * '0' + text_zip
-			freq[text_zip] += 1
-	print(freq)
+    freq: Counter[str] = Counter()
+    with source_path.open() as source:
+        rdr = csv.DictReader(source)
+        for row in rdr:
+            if "-" in row['ZIP']:
+                text_zip = row['ZIP']
+                missing_zeros = 10 - len(text_zip)
+                if missing_zeros:
+                    text_zip = missing_zeros * '0' + text_zip
+            else:
+                text_zip = row['ZIP']
+                if 5 < len(row['ZIP']) < 9:
+                    missing_zeros = 9 - len(text_zip)
+                else:
+                    missing_zeros = 5 - len(text_zip)
+                if missing_zeros:
+                    text_zip = missing_zeros * '0' + text_zip
+            freq[text_zip] += 1
+    print(freq)
 
 if __name__ == "__main__":
-	main()
+    main()
 ```
 It can be refactored (tangled also so that quarto works with it) into two parts.
 new `zip_histogram()` should be written to contain much of the processing detail. The func will process the opened file, returning a Counter object.
 ```{python}
 def zip_histogram(reader: csv.DictReader[str]) -> Counter[str]:
-	pass
+    pass
 ```
 1. The `main()` func is left with the responsibility to open the file, create the csv.DictReader instance, eval `zip_histogram()`, and print the histogram.
 2. Once the zip_histogram function is defined, the cleansing of the ZIP attribute can be refactored into separate functions, with a name like `zip_cleanse()`. Instead of setting the value of the `text_zip` variable, this function can return a cleansed result. This can then be tested separately to be sure the various cases are handled gracefully.
@@ -260,7 +257,7 @@ The final zip function should look like:
 
 ```{python}
 def zip_histogram(reader: csv.DictReader[str]) -> Counter[str]:
-	return Counter(zip_cleanse(row['ZIP']) for row in reader)
+    return Counter(zip_cleanse(row['ZIP']) for row in reader)
 ```
 
 
@@ -269,7 +266,7 @@ def zip_histogram(reader: csv.DictReader[str]) -> Counter[str]:
 
 ```{python}
 def example(a, b, **kwargs):
-	return a * b
+    return a * b
 
 print(type(example))
 print(example.__code__.co_varnames)
