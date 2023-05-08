@@ -1,0 +1,27 @@
+---
+title: "habits"
+author: "ernest orlowski"
+format: pptx
+---
+
+# morning stuff
+
+## Getting up
+- turn off alarm
+- get out of bed
+
+## Breakfast
+- drink coffee
+
+
+# Evening stuff
+
+## Dinner
+- drink not coffee
+
+---
+# 3 dashes also delineate slides.
+
+## Going to sleep
+- get in bed
+- sleep

@@ -1,0 +1,43 @@
+---
+title: "Brain games 99 Brain teasers"
+author: "Ernest Orlowski"
+format:
+  html:
+    code-folding: true
+jupyter: python3
+---
+##  p67, Puzzle: code
+- Chapter 6: If confusion
+```{python}
+a, b = True, True
+
+if b or a or not a and not b:
+    if a:
+        print("love")
+    elif b and a or not a:
+        print("42")
+    print("42")
+elif a and b or not a:
+    if a or b or not b or not a:
+        print("42")
+    print("yes")
+else:
+    print("yes")
+```
+```{python}
+a, b = False, True
+
+if a and b:
+    if a and b or not a:
+        print("love")
+    elif a and b or not a:
+        print("42")
+    print("love")
+elif a and b and not a:
+    if b and a:
+        print("yes")
+    print("42")
+else:
+    print("python")
+
+```

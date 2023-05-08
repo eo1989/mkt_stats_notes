@@ -1,0 +1,48 @@
+[submodule "PythonDataScienceHandbook"]
+	path = PythonDataScienceHandbook
+	url = https://github.com/jakevdp/PythonDataScienceHandbook.git
+[submodule "pydata-book"]
+	path = pydata-book
+	url = https://github.com/wesm/pydata-book.git
+[submodule "LinAlg4DataScience"]
+	path = LinAlg4DataScience
+	url = https://github.com/mikexcohen/LinAlg4DataScience.git
+[submodule "Interactive-Data-Visualization-with-Python"]
+	path = Interactive-Data-Visualization-with-Python
+	url = https://github.com/TrainingByPackt/Interactive-Data-Visualization-with-Python.git
+[submodule "Functional-Python-Programming-3rd-Edition"]
+	path = Functional-Python-Programming-3rd-Edition
+	url = https://github.com/PacktPublishing/Functional-Python-Programming-3rd-Edition.git
+[submodule "Cleaning-Data-for-Effective-Data-Science"]
+	path = Cleaning-Data-for-Effective-Data-Science
+	url = https://github.com/PacktPublishing/Cleaning-Data-for-Effective-Data-Science.git
+[submodule "Essential-Statistics-for-Non-STEM-Data-Analysts"]
+	path = Essential-Statistics-for-Non-STEM-Data-Analysts
+	url = https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts.git
+[submodule "oreilly_essential_math_for_data_science_book"]
+	path = oreilly_essential_math_for_data_science_book
+	url = https://github.com/thomasnield/oreilly_essential_math_for_data_science_book.git
+[submodule "Machine-Learning-for-High-Risk-Applications-Book"]
+	path = Machine-Learning-for-High-Risk-Applications-Book
+	url = https://github.com/ml-for-high-risk-apps-book/Machine-Learning-for-High-Risk-Applications-Book.git
+[submodule "oreilly_sql_fundamentals_for_data"]
+	path = oreilly_sql_fundamentals_for_data
+	url = https://github.com/thomasnield/oreilly_sql_fundamentals_for_data.git
+[submodule "oreilly_math_fundamentals_data_science"]
+	path = oreilly_math_fundamentals_data_science
+	url = https://github.com/thomasnield/oreilly_math_fundamentals_data_science.git
+[submodule "oreilly_intro_to_mathematical_optimization"]
+	path = oreilly_intro_to_mathematical_optimization
+	url = https://github.com/thomasnield/oreilly_intro_to_mathematical_optimization.git
+[submodule "oreilly_intermediate_sql_for_data"]
+	path = oreilly_intermediate_sql_for_data
+	url = https://github.com/thomasnield/oreilly_intermediate_sql_for_data.git
+[submodule "oreilly_machine_learning_from_scratch"]
+	path = oreilly_machine_learning_from_scratch
+	url = https://github.com/thomasnield/oreilly_machine_learning_from_scratch.git
+[submodule "oreilly-probability-from-scratch"]
+	path = oreilly-probability-from-scratch
+	url = https://github.com/thomasnield/oreilly-probability-from-scratch.git
+[submodule "data-science-at-the-command-line"]
+	path = data-science-at-the-command-line
+	url = https://github.com/jeroenjanssens/data-science-at-the-command-line.git
