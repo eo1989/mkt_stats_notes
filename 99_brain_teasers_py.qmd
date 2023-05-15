@@ -41,3 +41,32 @@ else:
     print("python")
 
 ```
+
+```{python}
+import pandas as pd
+
+scalar_series = pd.Series(42, index = [0, 1, 2], dtype = float, name = 'CONST')
+result = scalar_series.sum()
+print(result)
+
+```
+The answer is 126.0; the puzzle creates a Series that contains three times the value of 42.0. Pass the scalar value 42 as data and a list of integers as index values. Since there are three index values, you obtain three entries in the Series with a dtype of float.
+
+-- Create a series from a list of data
+```{python}
+snakes = ['Python', 'Cobra', 'Anaconda', 'Viper']
+snakes_series = pd.Series(snakes)
+result = snakes_series.values[2]
+
+print(result)
+```
+
+-- Create series with custom index values
+```{python}
+fibs = [0, 1, 1, 2, 3, 5, 8]
+indxs = [0, 1, 2, 3, 4, 5, 6]
+
+fib_series = pd.Series(data = fibs, index = indxs)
+result = fib_series.shape
+print(result)
+```
