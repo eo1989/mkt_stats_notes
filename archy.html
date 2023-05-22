@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ernest Orlowski">
+<meta name="dcterms.date" content="2023-05-17">
+
+<title>Arch Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="archy_files/libs/clipboard/clipboard.min.js"></script>
+<script src="archy_files/libs/quarto-html/quarto.js"></script>
+<script src="archy_files/libs/quarto-html/popper.min.js"></script>
+<script src="archy_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="archy_files/libs/quarto-html/anchor.min.js"></script>
+<link href="archy_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="archy_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="archy_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="archy_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="archy_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="archy.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Arch Notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ernest Orlowski </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 17, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><!-- cache: true  # cache the results of computations (using knitr cache for rmd, jupyter cache for jupyter docs) --></p>
+<section id="when-rendering-ipynbs-quarto-will-not-execute-the-cells-within-the-nb-by-default-presumed-that-you-already-executed-them-while-editing-the-notebook" class="level4">
+<h4 class="anchored" data-anchor-id="when-rendering-ipynbs-quarto-will-not-execute-the-cells-within-the-nb-by-default-presumed-that-you-already-executed-them-while-editing-the-notebook">When rendering ipynb’s Quarto will not execute the cells within the nb by default (presumed that you already executed them while editing the notebook)</h4>
+</section>
+<section id="if-you-want-to-execute-ipynbs-with-quarto-must-pass-execute-flag-to-quarto-itself-e.g.-quarto-render-archy.ipynb-execute" class="level4">
+<h4 class="anchored" data-anchor-id="if-you-want-to-execute-ipynbs-with-quarto-must-pass-execute-flag-to-quarto-itself-e.g.-quarto-render-archy.ipynb-execute">If you want to execute ipynbs with quarto, must pass ‘–execute’ flag to quarto itself (e.g.&nbsp;quarto render archy.ipynb –execute)</h4>
+</section>
+<section id="similarly-adding-execute-nabled-true-as-above-to-the-yaml-front-matter" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="similarly-adding-execute-nabled-true-as-above-to-the-yaml-front-matter">Similarly adding execute: nabled: true as above to the yaml front matter</h4>
+<div id="arch_model_report" class="cell column-screen caption-undefined" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Iteration:      1,   Func. Count:      6,   Neg. LLF: 79.07273723140435
+Iteration:      2,   Func. Count:     14,   Neg. LLF: 1.857770588011525
+Iteration:      3,   Func. Count:     22,   Neg. LLF: -13.680140141444815
+Iteration:      4,   Func. Count:     28,   Neg. LLF: -13.69790409674026
+Iteration:      5,   Func. Count:     33,   Neg. LLF: -13.698157276825494
+Iteration:      6,   Func. Count:     38,   Neg. LLF: -13.698172921572997
+Iteration:      7,   Func. Count:     42,   Neg. LLF: -13.698172921543991
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -13.698172921572997
+            Iterations: 7
+            Function evaluations: 42
+            Gradient evaluations: 7
+result summary:
+                     Constant Mean - GARCH Model Results                      
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                      GARCH   Log-Likelihood:                13.6982
+Distribution:                  Normal   AIC:                          -19.3963
+Method:            Maximum Likelihood   BIC:                          -19.6127
+                                        No. Observations:                    7
+Date:                Wed, May 17 2023   Df Residuals:                        6
+Time:                        20:38:06   Df Model:                            1
+                                  Mean Model                                 
+=============================================================================
+                 coef    std err          t      P&gt;|t|       95.0% Conf. Int.
+-----------------------------------------------------------------------------
+mu             0.0101  1.121e-02      0.903      0.367 [-1.185e-02,3.208e-02]
+                               Volatility Model                              
+=============================================================================
+                 coef    std err          t      P&gt;|t|       95.0% Conf. Int.
+-----------------------------------------------------------------------------
+omega      3.9012e-04  1.283e-03      0.304      0.761 [-2.125e-03,2.905e-03]
+alpha[1]   6.6780e-15      0.196  3.409e-14      1.000      [ -0.384,  0.384]
+beta[1]        0.6914      1.328      0.521      0.603      [ -1.912,  3.295]
+=============================================================================
+
+Covariance estimator: robust</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\eorlo\.pyenv\pyenv-win\versions\3.11.1\Lib\site-packages\arch\univariate\base.py:310: DataScaleWarning:
+
+y is poorly scaled, which may affect convergence of the optimizer when
+estimating the model parameters. The scale of y is 0.001171. Parameter
+estimation work better when this value is between 1 and 1000. The recommended
+rescaling is 10 * y.
+
+This warning can be disabled by either rescaling y before initializing the
+model or by setting rescale=False.
+
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> ar.arch_model(returns, mean<span class="op">=</span><span class="st">"constant"</span>, vol<span class="op">=</span><span class="st">"EGARCH"</span>, p<span class="op">=</span><span class="dv">1</span>, q<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> model.fit()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"result summary:</span><span class="ch">\n</span><span class="sc">{</span>result<span class="sc">.</span>summary()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Iteration:      1,   Func. Count:      6,   Neg. LLF: 1.9116788002451868
+Iteration:      2,   Func. Count:     14,   Neg. LLF: -2.167766410822782
+Iteration:      3,   Func. Count:     21,   Neg. LLF: -13.8359347345903
+Iteration:      4,   Func. Count:     26,   Neg. LLF: 5.712413107604423
+Iteration:      5,   Func. Count:     32,   Neg. LLF: 10.462553414330142
+Iteration:      6,   Func. Count:     38,   Neg. LLF: -14.189495017841795
+Iteration:      7,   Func. Count:     43,   Neg. LLF: -14.2436091951425
+Iteration:      8,   Func. Count:     48,   Neg. LLF: -14.32705226438355
+Iteration:      9,   Func. Count:     53,   Neg. LLF: -14.755013415794515
+Iteration:     10,   Func. Count:     58,   Neg. LLF: 2808601.146244846
+Iteration:     11,   Func. Count:     64,   Neg. LLF: -9.294102001506392
+Iteration:     12,   Func. Count:     70,   Neg. LLF: 4392407.536058409
+Iteration:     13,   Func. Count:     77,   Neg. LLF: -15.281419109183657
+Iteration:     14,   Func. Count:     82,   Neg. LLF: -14.382319599881647
+Iteration:     15,   Func. Count:     89,   Neg. LLF: -15.6532450784246
+Iteration:     16,   Func. Count:     94,   Neg. LLF: -15.670541400612866
+Iteration:     17,   Func. Count:     99,   Neg. LLF: -15.770085119906103
+Iteration:     18,   Func. Count:    104,   Neg. LLF: 710592.8312409557
+Iteration:     19,   Func. Count:    110,   Neg. LLF: 684577.429463651
+Iteration:     20,   Func. Count:    116,   Neg. LLF: 76.61993672223511
+Iteration:     21,   Func. Count:    123,   Neg. LLF: 55245531.10585962
+Iteration:     22,   Func. Count:    131,   Neg. LLF: 516995809.7873708
+Iteration:     23,   Func. Count:    139,   Neg. LLF: 518148415.51186687
+Iteration:     24,   Func. Count:    147,   Neg. LLF: 103.10072589638024
+Iteration:     25,   Func. Count:    155,   Neg. LLF: -16.628110421477242
+Iteration:     26,   Func. Count:    160,   Neg. LLF: -16.71939674971793
+Iteration:     27,   Func. Count:    165,   Neg. LLF: -16.878249361067734
+Iteration:     28,   Func. Count:    170,   Neg. LLF: -16.31830833844816
+Iteration:     29,   Func. Count:    176,   Neg. LLF: -16.879999293876413
+Iteration:     30,   Func. Count:    182,   Neg. LLF: -16.945377285688146
+Iteration:     31,   Func. Count:    187,   Neg. LLF: 3778.9568802337753
+Iteration:     32,   Func. Count:    193,   Neg. LLF: -16.976994904074527
+Iteration:     33,   Func. Count:    198,   Neg. LLF: -16.989869448615437
+Iteration:     34,   Func. Count:    203,   Neg. LLF: -17.006340852300504
+Iteration:     35,   Func. Count:    208,   Neg. LLF: -16.80496253734687
+Iteration:     36,   Func. Count:    214,   Neg. LLF: -16.99738491379663
+Iteration:     37,   Func. Count:    220,   Neg. LLF: -17.025167191250837
+Iteration:     38,   Func. Count:    225,   Neg. LLF: -17.039461270235808
+Iteration:     39,   Func. Count:    230,   Neg. LLF: -17.054162529643943
+Iteration:     40,   Func. Count:    235,   Neg. LLF: -17.02326567038973
+Iteration:     41,   Func. Count:    241,   Neg. LLF: -17.065195476321282
+Iteration:     42,   Func. Count:    246,   Neg. LLF: -17.07924675852987
+Iteration:     43,   Func. Count:    251,   Neg. LLF: -17.091486299541504
+Iteration:     44,   Func. Count:    256,   Neg. LLF: 855.8168549879686
+Iteration:     45,   Func. Count:    262,   Neg. LLF: -17.097843558737345
+Iteration:     46,   Func. Count:    267,   Neg. LLF: -17.1011817882601
+Iteration:     47,   Func. Count:    272,   Neg. LLF: -17.110322357994043
+Iteration:     48,   Func. Count:    277,   Neg. LLF: -17.11907107099879
+Iteration:     49,   Func. Count:    282,   Neg. LLF: -17.137551806876306
+Iteration:     50,   Func. Count:    287,   Neg. LLF: -17.15333776691151
+Iteration:     51,   Func. Count:    292,   Neg. LLF: -16.707797256334096
+Iteration:     52,   Func. Count:    298,   Neg. LLF: -9.390775582559781
+Iteration:     53,   Func. Count:    304,   Neg. LLF: -16.95037404868488
+Iteration:     54,   Func. Count:    310,   Neg. LLF: -17.124062695912805
+Iteration:     55,   Func. Count:    316,   Neg. LLF: -17.173883088321652
+Iteration:     56,   Func. Count:    322,   Neg. LLF: -17.211004382735425
+Iteration:     57,   Func. Count:    327,   Neg. LLF: -17.242512109873246
+Iteration:     58,   Func. Count:    332,   Neg. LLF: 1.8879865987742157
+Iteration:     59,   Func. Count:    338,   Neg. LLF: 1064.9602970479732
+Iteration:     60,   Func. Count:    344,   Neg. LLF: -17.26717014237004
+Iteration:     61,   Func. Count:    349,   Neg. LLF: -17.274321012524265
+Iteration:     62,   Func. Count:    354,   Neg. LLF: -17.283642218201834
+Iteration:     63,   Func. Count:    359,   Neg. LLF: -17.298986805050657
+Iteration:     64,   Func. Count:    364,   Neg. LLF: -17.31384154886321
+Iteration:     65,   Func. Count:    369,   Neg. LLF: -16.958565559108827
+Iteration:     66,   Func. Count:    375,   Neg. LLF: 120.39397161693852
+Iteration:     67,   Func. Count:    381,   Neg. LLF: -17.213813191966903
+Iteration:     68,   Func. Count:    387,   Neg. LLF: -17.33795475144449
+Iteration:     69,   Func. Count:    393,   Neg. LLF: -17.37301789832106
+Iteration:     70,   Func. Count:    398,   Neg. LLF: -17.42272279091292
+Iteration:     71,   Func. Count:    403,   Neg. LLF: -16.493937645656867
+Iteration:     72,   Func. Count:    409,   Neg. LLF: -16.962182163724936
+Iteration:     73,   Func. Count:    415,   Neg. LLF: -17.079207778326158
+Iteration:     74,   Func. Count:    421,   Neg. LLF: -17.212353649605337
+Iteration:     75,   Func. Count:    427,   Neg. LLF: -17.297581539910304
+Iteration:     76,   Func. Count:    433,   Neg. LLF: -17.378983916572743
+Iteration:     77,   Func. Count:    439,   Neg. LLF: -17.468269096310465
+Iteration:     78,   Func. Count:    445,   Neg. LLF: -17.573951106752432
+Iteration:     79,   Func. Count:    450,   Neg. LLF: -17.649862765402474
+Iteration:     80,   Func. Count:    455,   Neg. LLF: 549.088792743528
+Iteration:     81,   Func. Count:    461,   Neg. LLF: 3737121.698560829
+Iteration:     82,   Func. Count:    469,   Neg. LLF: -17.50826876821185
+Iteration:     83,   Func. Count:    475,   Neg. LLF: -17.744631951201217
+Iteration:     84,   Func. Count:    481,   Neg. LLF: -17.756825643266772
+Iteration:     85,   Func. Count:    486,   Neg. LLF: -17.773198885062712
+Iteration:     86,   Func. Count:    491,   Neg. LLF: -17.879811752318766
+Iteration:     87,   Func. Count:    496,   Neg. LLF: 49.1414485012626
+Iteration:     88,   Func. Count:    502,   Neg. LLF: -8.650403507089813
+Iteration:     89,   Func. Count:    510,   Neg. LLF: -17.742529296543374
+Iteration:     90,   Func. Count:    518,   Neg. LLF: -17.921687088229326
+Iteration:     91,   Func. Count:    527,   Neg. LLF: -3.9231164321307572
+Iteration:     92,   Func. Count:    536,   Neg. LLF: 8.516843418912018
+Iteration:     93,   Func. Count:    547,   Neg. LLF: 3702541.832202199
+Iteration:     94,   Func. Count:    558,   Neg. LLF: 4600610.695414322
+Iteration:     95,   Func. Count:    572,   Neg. LLF: 4461212.501898589
+Iteration:     96,   Func. Count:    586,   Neg. LLF: 4461105.331661797
+Iteration:     97,   Func. Count:    601,   Neg. LLF: 4461084.463684214
+Iteration:     98,   Func. Count:    616,   Neg. LLF: 4461061.72923133
+Iteration:     99,   Func. Count:    628,   Neg. LLF: 4461084.571353999
+Iteration:    100,   Func. Count:    642,   Neg. LLF: -17.934107428914515
+Iteration limit reached    (Exit mode 9)
+            Current function value: -17.934003818206136
+            Iterations: 100
+            Function evaluations: 642
+            Gradient evaluations: 100
+result summary:
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:                17.9340
+Distribution:                  Normal   AIC:                          -27.8680
+Method:            Maximum Likelihood   BIC:                          -28.0844
+                                        No. Observations:                    7
+Date:                Wed, May 17 2023   Df Residuals:                        6
+Time:                        20:38:06   Df Model:                            1
+                                 Mean Model                                 
+============================================================================
+                 coef    std err          t      P&gt;|t|      95.0% Conf. Int.
+----------------------------------------------------------------------------
+mu             0.0311  2.580e-07  1.207e+05      0.000 [3.114e-02,3.114e-02]
+                            Volatility Model                            
+========================================================================
+                 coef    std err          t      P&gt;|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+omega         -2.3732  4.136e-03   -573.751      0.000 [ -2.381, -2.365]
+alpha[1]      -9.1061  1.536e-02   -592.986      0.000 [ -9.136, -9.076]
+beta[1]        1.0000  6.300e-06  1.587e+05      0.000 [  1.000,  1.000]
+========================================================================
+
+Covariance estimator: robust
+WARNING: The optimizer did not indicate successful convergence. The message was Iteration limit reached.
+See convergence_flag.
+</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\eorlo\.pyenv\pyenv-win\versions\3.11.1\Lib\site-packages\arch\univariate\base.py:310: DataScaleWarning:
+
+y is poorly scaled, which may affect convergence of the optimizer when
+estimating the model parameters. The scale of y is 0.001171. Parameter
+estimation work better when this value is between 1 and 1000. The recommended
+rescaling is 10 * y.
+
+This warning can be disabled by either rescaling y before initializing the
+model or by setting rescale=False.
+
+
+C:\Users\eorlo\.pyenv\pyenv-win\versions\3.11.1\Lib\site-packages\arch\univariate\base.py:756: ConvergenceWarning:
+
+The optimizer returned code 9. The message is:
+Iteration limit reached
+See scipy.optimize.fmin_slsqp for code meaning.
+
+</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,43 @@
+---
+title: "Arch Notes"
+date: "05/17/2023"
+author: "Ernest Orlowski"
+format:
+  html:
+    code-folding: true
+  pdf:
+    toc: true
+    number-selections: true
+    colorlinks: true
+jupyter: python3
+execute:
+  enabled: true
+  freeze: auto  # re-render only when source changes
+fig-cap-location: margin
+reference-location: margin
+---
+  <!-- cache: true  # cache the results of computations (using knitr cache for rmd, jupyter cache for jupyter docs) -->
+
+
+#### When rendering ipynb's Quarto will not execute the cells within the nb by default (presumed that you already executed them while editing the notebook)
+#### If you want to execute ipynbs with quarto, must pass '--execute' flag to quarto itself (e.g. quarto render archy.ipynb --execute)
+#### Similarly  adding execute: \n\t enabled: true as above to the yaml front matter
+
+```{python}
+# | label: arch_model_report
+# | fig-cap: "Garch Model Report"
+# | cap-location: margin
+# | column: screen
+# | echo: false
+import arch as ar
+
+returns = [0.03, -0.02, 0.05, 0.04, -0.05, -0.01, 0.03]
+model = ar.arch_model(returns, mean="constant", vol="GARCH", p=1, q=1)
+result = model.fit()
+print(f"result summary:\n{result.summary()}")
+```
+```{python}
+model = ar.arch_model(returns, mean="constant", vol="EGARCH", p=1, q=1)
+result = model.fit()
+print(f"result summary:\n{result.summary()}")
+```
