@@ -1,0 +1,25 @@
+---
+title: "Think Bayes ch1 notes"
+author: "Ernest Orlowski"
+date: "05/24/2023"
+format:
+  html:
+    code-folding: true
+	toc: true
+execute:
+  enabled: true
+  keep-ipynb: true
+jupyter: python3
+---
+# Conditional probability utilizing Bayes theorem:
+## Probability:
+- A probability is a fraction of a finite set.
+- ex: survey 1000 people, and 20 of them are bank tellers, the fraction shows that bank tellers are 2%, or 0.02 of the population. Chosing a random person out of this population would have a 2% chance of being a bank teller.
+
+Using GSS (General Social Survey) data here use pandas to read the data and extract the columns we need.
+
+```{python}
+import pandas as pd
+
+gss = pd.read_csv('ThinkBayes2')
+```
