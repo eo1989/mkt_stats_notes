@@ -46,3 +46,6 @@
 [submodule "data-science-at-the-command-line"]
 	path = data-science-at-the-command-line
 	url = https://github.com/jeroenjanssens/data-science-at-the-command-line.git
+[submodule "ThinkBayes2"]
+	path = ThinkBayes2
+	url = https://github.com/AllenDowney/ThinkBayes2.git
