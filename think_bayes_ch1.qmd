@@ -2,24 +2,170 @@
 title: "Think Bayes ch1 notes"
 author: "Ernest Orlowski"
 date: "05/24/2023"
+editor:
+  render-on-save: true
 format:
   html:
     code-folding: true
-	toc: true
-execute:
-  enabled: true
-  keep-ipynb: true
+# execute:
+#   enabled: true
+#   keep-ipynb: true
 jupyter: python3
 ---
+
 # Conditional probability utilizing Bayes theorem:
+
 ## Probability:
-- A probability is a fraction of a finite set.
-- ex: survey 1000 people, and 20 of them are bank tellers, the fraction shows that bank tellers are 2%, or 0.02 of the population. Chosing a random person out of this population would have a 2% chance of being a bank teller.
+
+-   A probability is a fraction of a finite set.
+-   ex: survey 1000 people, and 20 of them are bank tellers, the fraction shows that bank tellers are 2%, or 0.02 of the population. Chosing a random person out of this population would have a 2% chance of being a bank teller.
 
 Using GSS (General Social Survey) data here use pandas to read the data and extract the columns we need.
 
 ```{python}
 import pandas as pd
 
-gss = pd.read_csv('ThinkBayes2')
+gss = pd.read_csv('ThinkBayes2/data/gss_bayes.csv', index_col=0)
+gss.head()
+```
+
+|columns| description |
+|------:|:------------|
+|'caseid'  | Respondent ID (index of the table)|
+|'year'    | Year when respondent was surveyed|
+|'age'     | respondents age|
+|'sex'     | Male or female|
+|'polviews'| Political views on a range from lib to cons|
+|'partyid' | Political party affiliation|
+|'indus10' | code for the industry the respondent works in|
+
+### Fraction of Bankers:
+
+The code for "Banking and related activities" is 6870, so select them:
+
+```{python}
+banker = (gss['indus10'] == 6870)
+banker.head()
+```
+
+Sum up the series, itll treat True as 1 and False as 0, so the sum is the number of bankers:
+
+```{python}
+banker.sum()  # 728 bankers
+banker.mean()  # 0.014769 ~1.5%
+
+
+```
+
+There are 728 bankers in the respondents sample, choosing a random person from the sample would have a 1.5% chance of being a banker.
+
+### Probability Function:
+
+A probability function maps from each hypothesis to its probability. In this case, the hypothesis is whether the respondent is a banker or not. The probability function is a map from True to 0.015 and False to 0.985.
+
+```{python}
+def prob(A):
+    return A.mean()
+
+
+prob(banker)  # 0.014769 ~1.5%
+```
+
+Looking at other variables:
+
+```{python}
+female = (gss['sex'] == 2)
+prob(female)  # 0.537857 ~54%
+
+# Political Views:
+
+democrat = (gss['partyid'] <= 1)
+prob(democrat)  # 0.36626 ~37%
+
+```
+### Conjunction:
+- Another name for the logical `and` operation. If you have two *propositions*, A and B, the conjunction A and B is True if both A and B are true, and False otherwise.
+- With two boolean series use the `&` operator to compute their conjunction.
+```{python .wrap-on}
+prob(banker & democrat)  # 0.004686 ~0.5%
+prob(democrat & banker)  # 0.004686 ~0.5%
+
+liberal = (gss['polviews'] <= 3)
+print(prob(liberal))  # 0.27 ~27%
+
+# Conditional Probaility (Not commutative)
+selected = democrat[liberal]
+print(prob(selected))  # 0.52 ~52%
+# selected contains the values of democrat for liberal respondents
+# so prob(selected) is the fraction of liberals who are dems.
+
+selected = female[banker]
+print(prob(selected))  # 0.77 ~77%
+
+
+def conditional(proposition, given):
+    """Conditional probability of proposition given given."""
+    return prob(proposition[given])
+
+
+print(conditional(liberal, given=female))  # 0.2758 ~27.5%
+
+```
+note: above includes the keyword "given", along with the parameter, female, makes expression more readable.
+
+Conjunction is commutative; that is, prob(A & B) is always = prob(B & A). But conditional probability is not commutative; in general, conditional(A, B) is not the same as conditional(B, A).
+```{python}
+print(conditional(female, given=banker))  # 0.77 ~77%
+print(conditional(banker, given=female))  # 0.02 ~2%
+
+print(conditional(female, given=liberal & democrat))  # 0.576 ~57.6%
+```
+
+### Laws of probability:
+* Theorem 1: Using a conjunction to compute a conditional probability.
+* Theorem 2: Using a conditional probability to compute a conjunction.
+* Theorem 3: Using the law of total probability to compute a conjunction.
+  * Using conditional(A, B) to compute conditional(B, A)
+
+Theorem 3 is colloquilally known as **Bayes' Theorem**.
+$$ P(A|B) = \frac{P(A)P(B|A)}{P(B)} $$
+
+Mathematically:
+* P(A) is the probability of proposition A.
+* P(A and B) is the probability of the conjunction of A and B, the probability that both are true.
+* P(A|B) is the *conditional probability* of A **given that** B is true.
+
+#### Theorem 1:
+$$ P(A|B) = \frac{P(A \text{ and } B)}{P(B)} $$
+
+```{python}
+female[banker].mean()  # 0.77 ~77%
+
+print(
+    f"conditional female, given banker: {conditional(female, given = banker)}"
+)  # 0.77 ~77%
+# of all the bankers, what fraction are female bankers?
+print(f"{prob(female & banker) / prob(banker)}")
+```
+
+#### Theorem 2:
+$$ P(A \text{ and } B) = P(B)P(A|B) $$
+
+```{python}
+print(prob(liberal & democrat))  # 0.14  ~14%
+
+print(prob(democrat) * conditional(liberal, democrat))  # same
+```
+
+#### Theorem 3:
+$$ P(A \text{ and } B) = P(B \text{ and } A) $$
+  Apply theorem 2 to both sides:
+$$P(B)P(A|B) = P(A)P(B|A)$$
+  Divide both sides by P(B):
+$$ P(A|B) = \frac{P(A)P(B|A)}{P(B)} $$
+
+```{python}
+print(conditional(liberal, given=banker))
+
+print(prob(liberal) * conditional(banker, liberal) / prob(banker))
 ```
