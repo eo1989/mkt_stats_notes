@@ -7,6 +7,7 @@ editor:
 format:
   html:
     code-folding: true
+    html-math-method: katex
 # execute:
 #   enabled: true
 #   keep-ipynb: true
@@ -29,15 +30,15 @@ gss = pd.read_csv('ThinkBayes2/data/gss_bayes.csv', index_col=0)
 gss.head()
 ```
 
-|columns| description |
-|------:|:------------|
-|'caseid'  | Respondent ID (index of the table)|
-|'year'    | Year when respondent was surveyed|
-|'age'     | respondents age|
-|'sex'     | Male or female|
-|'polviews'| Political views on a range from lib to cons|
-|'partyid' | Political party affiliation|
-|'indus10' | code for the industry the respondent works in|
+| columns    | description                                   |
+|:-----------|:----------------------------------------------|
+| 'caseid'   | Respondent ID (index of the table)            |
+| 'year'     | Year when respondent was surveyed             |
+| 'age'      | respondents age                               |
+| 'sex'      | Male or female                                |
+| 'polviews' | Political views on a range from lib to cons   |
+| 'partyid'  | Political party affiliation                   |
+| 'indus10'  | code for the industry the respondent works in |
 
 ### Fraction of Bankers:
 
@@ -83,9 +84,12 @@ democrat = (gss['partyid'] <= 1)
 prob(democrat)  # 0.36626 ~37%
 
 ```
+
 ### Conjunction:
-- Another name for the logical `and` operation. If you have two *propositions*, A and B, the conjunction A and B is True if both A and B are true, and False otherwise.
-- With two boolean series use the `&` operator to compute their conjunction.
+
+-   Another name for the logical `and` operation. If you have two *propositions*, A and B, the conjunction A and B is True if both A and B are true, and False otherwise.
+-   With two boolean series use the `&` operator to compute their conjunction.
+
 ```{python .wrap-on}
 prob(banker & democrat)  # 0.004686 ~0.5%
 prob(democrat & banker)  # 0.004686 ~0.5%
@@ -111,9 +115,11 @@ def conditional(proposition, given):
 print(conditional(liberal, given=female))  # 0.2758 ~27.5%
 
 ```
+
 note: above includes the keyword "given", along with the parameter, female, makes expression more readable.
 
 Conjunction is commutative; that is, prob(A & B) is always = prob(B & A). But conditional probability is not commutative; in general, conditional(A, B) is not the same as conditional(B, A).
+
 ```{python}
 print(conditional(female, given=banker))  # 0.77 ~77%
 print(conditional(banker, given=female))  # 0.02 ~2%
@@ -122,20 +128,18 @@ print(conditional(female, given=liberal & democrat))  # 0.576 ~57.6%
 ```
 
 ### Laws of probability:
-* Theorem 1: Using a conjunction to compute a conditional probability.
-* Theorem 2: Using a conditional probability to compute a conjunction.
-* Theorem 3: Using the law of total probability to compute a conjunction.
-  * Using conditional(A, B) to compute conditional(B, A)
 
-Theorem 3 is colloquilally known as **Bayes' Theorem**.
-$$ P(A|B) = \frac{P(A)P(B|A)}{P(B)} $$
+-   Theorem 1: Using a conjunction to compute a conditional probability.
+-   Theorem 2: Using a conditional probability to compute a conjunction.
+-   Theorem 3: Using the law of total probability to compute a conjunction.
+    -   Using conditional(A, B) to compute conditional(B, A)
 
-Mathematically:
-* P(A) is the probability of proposition A.
-* P(A and B) is the probability of the conjunction of A and B, the probability that both are true.
-* P(A|B) is the *conditional probability* of A **given that** B is true.
+Theorem 3 is colloquilally known as **Bayes' Theorem**. $$ P(A|B) = \frac{P(A)P(B|A)}{P(B)} $$
+
+Mathematically: \* P(A) is the probability of proposition A. \* P(A and B) is the probability of the conjunction of A and B, the probability that both are true. \* P(A\|B) is the *conditional probability* of A **given that** B is true.
 
 #### Theorem 1:
+
 $$ P(A|B) = \frac{P(A \text{ and } B)}{P(B)} $$
 
 ```{python}
@@ -149,6 +153,7 @@ print(f"{prob(female & banker) / prob(banker)}")
 ```
 
 #### Theorem 2:
+
 $$ P(A \text{ and } B) = P(B)P(A|B) $$
 
 ```{python}
@@ -158,14 +163,59 @@ print(prob(democrat) * conditional(liberal, democrat))  # same
 ```
 
 #### Theorem 3:
-$$ P(A \text{ and } B) = P(B \text{ and } A) $$
-  Apply theorem 2 to both sides:
-$$P(B)P(A|B) = P(A)P(B|A)$$
-  Divide both sides by P(B):
-$$ P(A|B) = \frac{P(A)P(B|A)}{P(B)} $$
+
+$$ P(A \text{ and } B) = P(B \text{ and } A) $$ Apply theorem 2 to both sides: $$P(B)P(A|B) = P(A)P(B|A)$$ Divide both sides by P(B): $$ P(A|B) = \frac{P(A)P(B|A)}{P(B)} $$
 
 ```{python}
 print(conditional(liberal, given=banker))
 
 print(prob(liberal) * conditional(banker, liberal) / prob(banker))
+```
+
+#### Law of Total Probability
+$$ P(A) = P(B_1 \text{ and } A) + P(B_2 \text{ and } A) $$
+
+Total probability of A is the sum of two possiblities: either B_1 and A are true or B_2 and A are true. Only applying if B_1 and B_2 are:
+
+* Mutually exclusive: Only one of them can be true.
+* Collectively exhaustive: One of them must be true.
+
+```{python}
+print(prob(banker))
+male = (gss['sex'] == 1)
+print(prob(male & banker) + prob(female & banker))
+
+prob(banker) == prob(female & banker) + prob(male & banker)  # true
+```
+Because male and female are mutually excluse and collectively exhaustive (MECE), you get the same result by computing probability of banker directly.
+
+Applying theorem 2 to both sides of the law of total probability, we get:
+$$ P(A) = P(B_1)P(A|B_1) + P(B_2)P(A|B_2) $$
+
+<!-- test it -->
+
+```{python}
+(prob(male) * conditional(banker, given=male) +
+ prob(female) * conditional(banker, given=female))
+```
+
+When there are more than two conditions, it's more concise to write the law of total probability as a summation:
+$$ P(A) = \sum_{i}{P(B_i)P(A|B_i)} $$
+
+This holds as long as conditions B_i are mutually exclusive and collectively exhaustive.
+Consider polviews, with seven different values:
+```{python}
+B = gss['polviews']
+B.value_counts().sort_index()
+```
+On this scale, 4.0 represents "Moderate", computing the probability of a moderate banker:
+```{python}
+i = 4
+prob(B == i) * conditional(banker, B == i)  # 0.00582 ~0.6%
+```
+
+Using sum and a 'generator expression' to compute the summation:
+```{python}
+sum(prob(B == i) * conditional(banker, B == i)
+    for i in range(1, 8))  # 0.014769 ~1.47%, same result
 ```
