@@ -49,3 +49,9 @@
 [submodule "ThinkBayes2"]
 	path = ThinkBayes2
 	url = https://github.com/AllenDowney/ThinkBayes2.git
+[submodule "JuliaForDataAnalysis"]
+	path = JuliaForDataAnalysis
+	url = https://github.com/bkamins/JuliaForDataAnalysis
+[submodule "numerical_linear_algebra"]
+	path = numerical_linear_algebra
+	url = https://github.com/EricDarve/numerical_linear_algebra
