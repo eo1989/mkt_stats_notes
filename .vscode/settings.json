@@ -4,5 +4,12 @@
 	"python.linting.flake8Enabled": true,
 	"python.linting.pylintEnabled": false,
 	"python.linting.enabled": false,
-	"editor.suggest.preview": true
+	"editor.suggest.preview": true,
+	"workbench.colorCustomizations": {
+		"statusBar.background": "#5f0000",
+		"statusBar.noFolderBackground": "#5f0000",
+		"statusBar.debuggingBackground": "#5f0000",
+		"minimap.background": "#00000000",
+		"scrollbar.shadow": "#00000000"
+	}
 }
