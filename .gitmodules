@@ -55,3 +55,6 @@
 [submodule "numerical_linear_algebra"]
 	path = numerical_linear_algebra
 	url = https://github.com/EricDarve/numerical_linear_algebra
+[submodule "Practical-Discrete-Mathematics"]
+	path = Practical-Discrete-Mathematics
+	url = https://github.com/PacktPublishing/Practical-Discrete-Mathematics
