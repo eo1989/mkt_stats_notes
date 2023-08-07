@@ -5,7 +5,6 @@
 # TODO: Get this book!
 
 import abc
-from ast import Pass
 import time as tm
 import math as mat
 import cmath as cmat
@@ -89,12 +88,14 @@ def Payoff(x, K):
 t0 = tm.time()
 
 # init option data
-r = 0.08
+r = 0.055
 d = 0.0
-sig = 0.3
-T = 0.25
-K = 65.0
-S_0 = 60
+sig = 0.31
+# T = 0.25
+# T = 0.0436  # ~11 days to exp in 252 trading day calendar
+T = 0.0301  # ~11 days to exp in 365 day calendar
+K = 150.00
+S_0 = 142.00
 
 
 # exact
@@ -122,7 +123,8 @@ V_old = S_0
 
 # NT = time steps, NSIM = number of simulations
 NT = 300
-NSIM = 1_000_000
+# NSIM = 1_000_000
+NSIM = 10_000  # make it much smaller
 
 # discrete params, look into 3doptions.py
 dt = T / NT
