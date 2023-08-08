@@ -1,5 +1,5 @@
 ---
-title: "Think Bayes ch1 notes"
+title: "Think Bayes Ch1 Notes"
 author: "Ernest Orlowski"
 date: "05/24/2023"
 editor:
@@ -14,8 +14,7 @@ format:
 jupyter: python3
 ---
 
-# Conditional probability utilizing Bayes theorem:
-
+# Conditional probability utilizing Bayes theorem
 ## Probability:
 
 -   A probability is a fraction of a finite set.
@@ -25,6 +24,8 @@ Using GSS (General Social Survey) data here use pandas to read the data and extr
 
 ```{python}
 import pandas as pd
+
+pd.set_option('display.float_format', '{:.3f}'.format)
 
 gss = pd.read_csv('ThinkBayes2/data/gss_bayes.csv', index_col=0)
 gss.head()
@@ -113,7 +114,6 @@ def conditional(proposition, given):
 
 
 print(conditional(liberal, given=female))  # 0.2758 ~27.5%
-
 ```
 
 note: above includes the keyword "given", along with the parameter, female, makes expression more readable.
@@ -181,11 +181,12 @@ Total probability of A is the sum of two possiblities: either B_1 and A are true
 * Collectively exhaustive: One of them must be true.
 
 ```{python}
-print(prob(banker))
+print(f"1: {print(prob(banker))}")
 male = (gss['sex'] == 1)
-print(prob(male & banker) + prob(female & banker))
+print(f"2: {prob(male & banker) + prob(female & banker)}")
 
-prob(banker) == prob(female & banker) + prob(male & banker)  # true
+print(f"3: {prob(banker) == prob(female & banker) + prob(male & banker)}"
+      )  # true
 ```
 Because male and female are mutually excluse and collectively exhaustive (MECE), you get the same result by computing probability of banker directly.
 
@@ -216,6 +217,83 @@ prob(B == i) * conditional(banker, B == i)  # 0.00582 ~0.6%
 
 Using sum and a 'generator expression' to compute the summation:
 ```{python}
-sum(prob(B == i) * conditional(banker, B == i)
-    for i in range(1, 8))  # 0.014769 ~1.47%, same result
+print(
+    f"{sum(prob(B == i) * conditional(banker, B == i) for i in range(1, 8)):.2g}"
+)  # 0.014769 ~1.47%, same result
+```
+
+### Exercises:
+[Exercise 1-1]{style="text-decoration: underline;"}
+
+Let’s use the tools in this chapter to solve a variation of the Linda problem.
+Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy.
+As a student, she was deeply concerned with issues of discrimination and social justice,
+and also participated in anti-nuclear demonstrations. Which is more probable?
+1.  Linda is a banker.
+2.  Linda is a banker and considers herself a liberal Democrat.
+    To answer this question, compute:
+        •  The probability that Linda is a female banker,
+        •  The probability that Linda is a liberal female banker, and
+        •  The probability that Linda is a liberal female banker and a Democrat.
+
+#### Solution:
+```{python}
+# The probability that Linda is a female banker,
+print(f"1. {prob(female & banker):.3f}")
+# The probability that Linda is a liberal female banker, and
+print(f"2. {prob(female & banker & liberal):.3g}")
+# The probability that Linda is a liberal female banker and a Democrat.
+print(f"3. {prob(female & banker & liberal & democrat):.3g}")
+```
+[Exercise 1-2]{style="text-decoration: underline;"}
+
+Use `conditional` to compute the following probabilities:
+
+- What is the probability that a respondent is liberal, given that they are a Democrat?
+- What is the probability that a respondent is a Democrat, given that they are liberal?
+```{python}
+print(f"{conditional(liberal, given = democrat):.3g}")
+print(f"{conditional(democrat, given = liberal):.3g}")
+```
+[Exercise 1-3]{style="text-decoration: underline;"}
+
+There’s a famous quote about young people, old people, liberals, and conservatives
+that goes something like:
+
+    If you are not a liberal at 25, you have no heart. If you are not a conservative at 35,
+    you have no brain.
+
+Whether you agree with this proposition or not, it suggests some probabilities we can
+compute as an exercise. Rather than use the specific ages 25 and 35, let’s define young
+and old as under 30 or over 65:
+```{python}
+young = (gss['age'] < 30)
+old = (gss['age'] >= 65)
+print(f"proability <30: {prob(young):.3f}, >=65: {prob(old):.3f}")
+```
+For those thresholds round numbers near the 20^{th} and 80^{th} percentiles were chosen.
+Depending on your age, you might or might not agree with these definitions of young and old.
+Defining a "conservative" as someone whose political views are "Conserivative", "Slightly Conservative", or "Extremely Conservative".
+```{python}
+conservative = (gss['polviews'] >= 5)
+print(f"{prob(conservative):.3f}")
+```
+Use prob and conditional to compute the following probabilities:
+
+1.  What is the probability that a randomly chosen respondent is a young liberal?
+2.  What is the probability that a young person is liberal?
+3.  What fraction of respondents are old conservatives?
+4.  What fraction of conservatives are old?
+
+For each statement, think about whether it is expressing a conjunction, a conditional
+probability, or both.
+For the conditional probabilities, be careful about the order of the arguments. If your
+answer to the last question is greater than 30%, you have it backwards!
+```{python}
+print(f"1. {prob(young & liberal):.3g}")
+print(f"2. {conditional(liberal, given = young):.3g}")
+print(f"3. {prob(old & conservative):.3g}")
+print(
+    f"4. {conditional(old, given = conservative):.3g}, {conditional(old, given = conservative) * 100:.3g}%"
+)
 ```
