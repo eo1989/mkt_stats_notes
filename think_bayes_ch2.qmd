@@ -1,0 +1,45 @@
+---
+title: "Think Bayes Ch2 Notes"
+author: "Ernest Orlowski"
+date: "05/31/2023"
+editor:
+  render-on-save: true
+format:
+  html:
+    code-folding: true
+    html-math-method: katex
+# execute:
+#   enabled: true
+#   keep-ipynb: true
+jupyter: python3
+---
+# Chapter 2: Bayes's Theorem
+### The Cookie Problem
+Suppose there are two bowls of cookies. Bowl 1 contains 30 vanilla cookies and 10 chocolate cookies. Bowl 2 contains 20 of each. Now suppose you choose one of the bowls at random and, without looking, select a cookie at random. The cookie is vanilla. What is the probability that it came from Bowl 1?
+
+This is a conditional probability; we want $$P(Bowl_1 | vanilla)$$ or $$P(B_1|V)$$ We can use Bayes's theorem:
+The conditional probability of getting a vanilla cookie, given we chose from Bowl 1 $$P(V|B_1)$$
+The conditional probability of getting a vanilla cookie, given we chose from Bowl 2 $$P(V|B_2)$$
+
+	Bayes's theorem shows how they're related:
+$$P(B_1|V) = \frac{P(B_1)P(V|B_1)}{P(V)}$$
+
+The term on the left is what we want: the probability of Bowl 1, given that we chose a vanilla cookie. The terms on the right are:
+  $$P(B_1)$$, the probability that we chose from Bowl 1, unconditioned by what kind of cookie we got. Since the problem says we chose a bowl at random, we can assume $$P(B_1) = 1/2$$
+  $$P(V|B_1)$$, the probability of getting a vanilla cookie from Bowl 1, which is 3/4
+
+  $$P(V)$$, the probability of drawing a vanilla cookie from either bowl. Since we had an equal chance of choosing either bowl and the bowls contain the same number of cookies
+ $$P(V) = P(B_1)P(V|B_1) + P(B_2)P(V|B_2)$$
+ $$P(V) = 1/2 * 3/4    + 1/2   * 1/2   = 5/8$$
+
+As there are equal chance of choosing either bowl and the bowls contain the same number of cookies, you have the same chance of choosing any cookie.
+Between the two bowls there are 50 vanilla and 30 chocolate cookies, so $$P(V) = 5/8$$
+Apply Bayes theorem to compute the *posterior* probability of Bowl 1:
+ $$P(B_1|V) = (1/2) * (3/4)/(5/8) = 3/5$$.
+
+### Diachronic Bayes
+Another way to think about Bayes: it gives us a way to update the probability of a *hypothesis*, $$H$$, in light of some body of *data*, $$D$$.
+This interpretation is "diachronic", meaning "related to change over time"; in this case, the probability of the hypotheses changes as we see new data.
+
+Written in terms of $$H$$ and $$D$$, Bayes's theorem is:
+$$P(H|D) = \frac{P(H)P(D|H)}{P(D)}$$
