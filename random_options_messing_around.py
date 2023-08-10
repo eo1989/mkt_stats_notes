@@ -14,8 +14,8 @@ plt.figure(figsize = (8, 6))
 
 # %%
 def N(x: float|np.ndarray) -> float|np.ndarray:
-	""" Normal distribution function """
-	return norm.cdf(x)
+    """ Normal distribution function """
+    return norm.cdf(x)
 
 # def S(self, S: float) -> float|DivisionByZero:
 # 	if S >= 0:
@@ -27,35 +27,44 @@ def N(x: float|np.ndarray) -> float|np.ndarray:
 # 	return S if S >= 0 else DivisionByZero("S must be greater than 0")
 
 def K(self, K: float) -> Any:
-	self.K = K
-	return K if K >= 0 else exit
+    self.K = K
+    return K if K >= 0 else exit
 
 def opt(S: float, K: float, r: float, sigma: float, ttm: float, c_or_p: str) -> float:
-	"""
-	Euro call/put price calc, again, using BSM & python types
-	S: spot
-	K: strike
-	r: risk free rate
-	sigma: volatility
-	ttm: time to maturity
-	c_or_p: call or put
-	"""
-	d1 = (np.log(S/K) + (r + 0.5*(sigma**2)) * ttm) / (sigma * np.sqrt(sigma))
-	d2 = d1 - sigma * np.sqrt(ttm)
+    """
+    Euro call/put price calc, again, using BSM & python types
+    S: spot
+    K: strike
+    r: risk free rate
+    sigma: volatility
+    ttm: time to maturity
+    c_or_p: call or put
+    """
+    d1 = (np.log(S/K) + (r + 0.5*(sigma**2)) * ttm) / (sigma * np.sqrt(sigma))
+    d2 = d1 - sigma * np.sqrt(ttm)
 
-	if (c_or_p == "call"):
-		return (S*N(d1) - K*np.exp(-r * ttm)*N(d2))
-	else:
-		return (K*np.exp(-r*ttm) * N(-d2) - S*N(-d1))
+    if (c_or_p == "call"):
+        return (S*N(d1) - K*np.exp(-r * ttm)*N(d2))
+    else:
+        return (K*np.exp(-r*ttm) * N(-d2) - S*N(-d1))
 # %%
-"""
-Option price w/ respect to underlying:
+from IPython.display import display, Latex, display_latex
+from IPython.display import display, Markdown, display_markdown
 
+display(Latex("""
+Option price w/ respect to underlying:
 \delta = \frac{\partial V}{\partial S}
 \gamma = \frac{\partial^2 V}{\partial S^2}
 
-\frac{\delta p}{\delta S} = \frac{delta c}{\delta S}
-"""
+\frac{\delta p}{\delta S} = \frac{delta c}$${\delta S}
+"""))
+# display_latex("""
+# Option price w/ respect to underlying:
+# \delta = \frac{\partial V}{\partial S}
+# \gamma = \frac{\partial^2 V}{\partial S^2}
+
+# \frac{\delta p}{\delta S} = \frac{delta c}{\delta S}
+# """, raw = True)
 s = [i for i in range(0, 101)]
 c = [opt(S = i, K = 50, r = 0.04, sigma = 0.3, ttm = 1, c_or_p="call") for i in range(0, 101)]
 p = [opt(S = i, K = 50, r = 0.04, sigma = 0.3, ttm = 1, c_or_p="put") for i in range(0, 101)]
