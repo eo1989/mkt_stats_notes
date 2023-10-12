@@ -5,6 +5,9 @@ format:
   html:
     code-folding: true
 jupyter: python3
+editor:
+    markdown:
+        wrap: 80
 ---
 ##  p67, Puzzle: code
 - Chapter 6: If confusion

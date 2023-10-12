@@ -4,6 +4,9 @@ format:
     html:
         code-fold: true
 jupyter: python3
+editor:
+    markdown:
+        wrap: 80
 ---
 ```{python}
 #| label: fig-polar
