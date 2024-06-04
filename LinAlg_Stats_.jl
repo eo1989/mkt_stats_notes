@@ -13,6 +13,7 @@ println("Mean: ", mean(yData), " Variance: ", var(data))
 p1 = histogram(data, xlabel="x", bins=80, normed=true, ylims=(0, 1.1))
 p2 = histogram(yData, xlabel="y", bins=80, normed=true, ylims=(0, 15))
 plot(p1, p2, ylabel="Proportion", size=(800, 400), legend=:none)
+# %%
 """
 The Triangular() function from Distributions is used to create a triangular distribution-type object with a mean of 5
 and a symmetric shape over the bound [4, 6]. An array of N observations from the distribution is then generated

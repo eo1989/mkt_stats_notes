@@ -58,3 +58,6 @@
 [submodule "Practical-Discrete-Mathematics"]
 	path = Practical-Discrete-Mathematics
 	url = https://github.com/PacktPublishing/Practical-Discrete-Mathematics
+[submodule "Mastering-Julia-Second-Edition"]
+	path = Mastering-Julia-Second-Edition
+	url = ./Mastering-Julia-Second-Edition

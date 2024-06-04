@@ -11,5 +11,6 @@
 		"statusBar.debuggingBackground": "#5f0000",
 		"minimap.background": "#00000000",
 		"scrollbar.shadow": "#00000000"
-	}
+	},
+	"python.analysis.typeCheckingMode": "basic"
 }
