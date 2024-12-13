@@ -1,0 +1,128 @@
+---
+author: "Ernest Orlowski"
+title: "DSA Interview Concepts"
+format: html
+---
+# DSA Interview Questions
+---
+## 1. Reverse a string:
+- Q: Reverse a given string.
+- A:
+
+```{python}
+def reverse_string(s):
+	return s[::-1]
+```
+
+## 2: Check palindrome
+- Q: Check if a string is a palindrome:
+- A:
+```{python}
+def is_palindrome(s):
+	return s == s[::-1]
+```
+
+## 3: Find Factorial
+- Q: Calculate the factorial of a number:
+- A:
+```{python}
+def factorial(n):
+	if n <= 1:
+		return 1
+	return n*factorial(n - 1)
+```
+
+## 4: Fibonacci Series
+- Q: Generate the $n^{th}$ Fibonacci number.
+- A:
+```{python}
+def fibonacho(n):
+	if n <= 1:
+		return n
+	return fibonacho(n - 1) + fibonacho(n - 2)
+```
+
+## 5: Linked List Cycle Detection
+- Q: Detect if there is a cycle in a linked list.
+- A:
+```{python}
+class ListNode:
+	def __init__(self, value: int = 0, next = None):
+		self.value = value
+		self.next = next
+
+	def has_cycle(node):
+		slow, fast = node, node
+		while fast and fast.next:
+			slow = slow.next
+			fast = fast.next.next
+			if slow == fast:
+				return True
+		return False
+```
+
+## 6: Merge Two Sorted Lists
+- Q: Merge two sorted lists.
+- A:
+```{python}
+def merge_sorted_lists(x1, x2):
+	dummy = ListNode(0)
+	current = dummy
+
+	while x1 and x2:
+		if x1.value < x2.value:
+			current.next, x1 = x1, x1.next
+		else:
+			current.next, x2 = x2, x2.next
+		current = current.next
+
+	current.next = x1 or x2
+	return dummy.next
+```
+
+## 7: Find the middle of a Linked List.
+- Q: Find the middle element of a linked list.
+- A:
+```{python}
+def find_middle(node):
+	slow, fast = node, node
+	while fast and fast.next:
+		slow = slow.next
+		fast = fast.next.next
+	return slow
+```
+
+## 8: Maximum Subarray Sum
+- Q: Find the maximum subarray sum using Kadane's algorithm
+- A:
+```{python}
+def max_subarray(nums):
+	max_current = max_global = nums[0]
+	for i in range(len(nums)):
+		max_current = max(nums[i], max_current + nums[i])
+		max_global = max(max_global, max_current)
+	return max_global
+```
+
+## 9: Check if a tree is balanced
+- Q: Check if a binary tree is balanced.
+- A:
+```{python}
+class TreeNode:
+	def __init__(self, value: int = 0, left = None, right = None):
+		self.value = value
+		self.left = left
+		self.right = right
+
+	def is_balanced(root):
+		def check_balance(node):
+			if not node:
+				return 0, True
+			left_height, left_balanced = check_balance(node.left)
+			right_height, right_balanced = check_balance(node.right)
+			return max(left_height, right_height) + 1, left_balanced and right_balanced and abs(left_height - right_height)
+		return check_balance(root)[1]
+
+
+```
+
