@@ -61,3 +61,9 @@
 [submodule "Mastering-Julia-Second-Edition"]
 	path = Mastering-Julia-Second-Edition
 	url = ./Mastering-Julia-Second-Edition
+[submodule "Polars-Cookbook"]
+	path = Polars-Cookbook
+	url = .\\Polars-Cookbook\\
+[submodule "Bioinformatics-with-Python-Cookbook-third-edition"]
+	path = Bioinformatics-with-Python-Cookbook-third-edition
+	url = .\\Bioinformatics-with-Python-Cookbook-third-edition\\
