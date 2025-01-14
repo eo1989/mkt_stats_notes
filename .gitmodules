@@ -61,3 +61,36 @@
 [submodule "Bioinformaktics-with-Python-Cookbook-Fourth-Edition"]
 	path = Bioinformatics-with-Python-Cookbook-Fourth-Edition
 	url = https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Fourth-Edition
+[submodule "Polars-Cookbook"]
+	path = Polars-Cookbook
+	url = https://github.com/PacktPublishing/Polars-Cookbook
+[submodule "Mastering-Julia-Second-Edition"]
+	path = Mastering-Julia-Second-Edition
+	url = https://github.com/PacktPublishing/Mastering-Julia-Second-Edition
+# [submodule "Bioinformatics-with-Python-Cookbook-Fourth-Edition"]
+# 	path = Bioinformatics-with-Python-Cookbook-Fourth-Edition
+# 	url = https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Fourth-Edition
+[submodule "Time-Series-Analysis-with-Python-Cookbook-Second-Edition"]
+	path = Time-Series-Analysis-with-Python-Cookbook-Second-Edition
+	url = https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook-Second-Edition
+[submodule "Time-Series-Analysis-with-Spark"]
+	path = Time-Series-Analysis-with-Spark
+	url = https://github.com/PacktPublishing/Time-Series-Analysis-with-Spark
+[submodule "XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis"]
+	path = XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis
+	url = https://github.com/PacktPublishing/XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis
+[submodule "R-Ultimate-2024---R-for-Data-Science-and-Machine-Learning"]
+	path = R-Ultimate-2024---R-for-Data-Science-and-Machine-Learning
+	url = https://github.com/PacktPublishing/R-Ultimate-2024---R-for-Data-Science-and-Machine-Learning
+[submodule "Data-Engineering-Best-Practices"]
+	path = Data-Engineering-Best-Practices
+	url = https://github.com/PacktPublishing/Data-Engineering-Best-Practices
+[submodule "Interactive-Visualization-and-Plotting-with-Julia"]
+	path = Interactive-Visualization-and-Plotting-with-Julia
+	url = https://github.com/PacktPublishing/Interactive-Visualization-and-Plotting-with-Julia
+[submodule "Web-Development-with-Julia-and-Genie"]
+	path = Web-Development-with-Julia-and-Genie
+	url = https://github.com/PacktPublishing/Web-Development-with-Julia-and-Genie
+[submodule "Data-engineering-with-dbt"]
+	path = Data-engineering-with-dbt
+	url = https://github.com/PacktPublishing/Data-engineering-with-dbt
