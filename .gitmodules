@@ -58,12 +58,6 @@
 [submodule "Practical-Discrete-Mathematics"]
 	path = Practical-Discrete-Mathematics
 	url = https://github.com/PacktPublishing/Practical-Discrete-Mathematics
-[submodule "Mastering-Julia-Second-Edition"]
-	path = Mastering-Julia-Second-Edition
-	url = ./Mastering-Julia-Second-Edition
-[submodule "Polars-Cookbook"]
-	path = Polars-Cookbook
-	url = .\\Polars-Cookbook\\
-[submodule "Bioinformatics-with-Python-Cookbook-third-edition"]
-	path = Bioinformatics-with-Python-Cookbook-third-edition
-	url = .\\Bioinformatics-with-Python-Cookbook-third-edition\\
+[submodule "Bioinformaktics-with-Python-Cookbook-Fourth-Edition"]
+	path = Bioinformatics-with-Python-Cookbook-Fourth-Edition
+	url = https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Fourth-Edition
