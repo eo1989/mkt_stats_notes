@@ -13,9 +13,6 @@
 [submodule "Functional-Python-Programming-3rd-Edition"]
 	path = Functional-Python-Programming-3rd-Edition
 	url = https://github.com/PacktPublishing/Functional-Python-Programming-3rd-Edition.git
-[submodule "Cleaning-Data-for-Effective-Data-Science"]
-	path = Cleaning-Data-for-Effective-Data-Science
-	url = https://github.com/PacktPublishing/Cleaning-Data-for-Effective-Data-Science.git
 [submodule "Essential-Statistics-for-Non-STEM-Data-Analysts"]
 	path = Essential-Statistics-for-Non-STEM-Data-Analysts
 	url = https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts.git
@@ -58,18 +55,12 @@
 [submodule "Practical-Discrete-Mathematics"]
 	path = Practical-Discrete-Mathematics
 	url = https://github.com/PacktPublishing/Practical-Discrete-Mathematics
-[submodule "Bioinformaktics-with-Python-Cookbook-Fourth-Edition"]
-	path = Bioinformatics-with-Python-Cookbook-Fourth-Edition
-	url = https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Fourth-Edition
 [submodule "Polars-Cookbook"]
 	path = Polars-Cookbook
 	url = https://github.com/PacktPublishing/Polars-Cookbook
 [submodule "Mastering-Julia-Second-Edition"]
 	path = Mastering-Julia-Second-Edition
 	url = https://github.com/PacktPublishing/Mastering-Julia-Second-Edition
-# [submodule "Bioinformatics-with-Python-Cookbook-Fourth-Edition"]
-# 	path = Bioinformatics-with-Python-Cookbook-Fourth-Edition
-# 	url = https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Fourth-Edition
 [submodule "Time-Series-Analysis-with-Python-Cookbook-Second-Edition"]
 	path = Time-Series-Analysis-with-Python-Cookbook-Second-Edition
 	url = https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook-Second-Edition
@@ -82,15 +73,192 @@
 [submodule "R-Ultimate-2024---R-for-Data-Science-and-Machine-Learning"]
 	path = R-Ultimate-2024---R-for-Data-Science-and-Machine-Learning
 	url = https://github.com/PacktPublishing/R-Ultimate-2024---R-for-Data-Science-and-Machine-Learning
-[submodule "Data-Engineering-Best-Practices"]
-	path = Data-Engineering-Best-Practices
-	url = https://github.com/PacktPublishing/Data-Engineering-Best-Practices
 [submodule "Interactive-Visualization-and-Plotting-with-Julia"]
 	path = Interactive-Visualization-and-Plotting-with-Julia
 	url = https://github.com/PacktPublishing/Interactive-Visualization-and-Plotting-with-Julia
 [submodule "Web-Development-with-Julia-and-Genie"]
 	path = Web-Development-with-Julia-and-Genie
 	url = https://github.com/PacktPublishing/Web-Development-with-Julia-and-Genie
-[submodule "Data-engineering-with-dbt"]
-	path = Data-engineering-with-dbt
-	url = https://github.com/PacktPublishing/Data-engineering-with-dbt
+[submodule "BAP3"]
+	path = BAP3
+	url = https://github.com/aloctavodia/BAP3.git
+[submodule "Python-Object-Oriented-Programming-5thed"]
+	path = Python-Object-Oriented-Programming-5thed
+	url = https://github.com/slott56/Python-Object-Oriented-Programming-5thed.git
+[submodule "Bioinformatics-with-Python-Cookbook-4ed"]
+	path = Bioinformatics-with-Python-Cookbook-4ed
+	url = https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Fourth-Edition.git
+[submodule "Data-Engineering-with-Databricks-Cookbook"]
+	path = Data-Engineering-with-Databricks-Cookbook
+	url = https://github.com/PacktPublishing/Data-Engineering-with-Databricks-Cookbook.git
+[submodule "Deep-Learning-for-Time-Series-Data-Cookbook"]
+	path = Deep-Learning-for-Time-Series-Data-Cookbook
+	url = https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook.git
+[submodule "Data-Analytics-for-Marketing"]
+	path = Data-Analytics-for-Marketing
+	url = https://github.com/PacktPublishing/Data-Analytics-for-Marketing.git
+[submodule "Building-ETL-Pipelines-with-Python"]
+	path = Building-ETL-Pipelines-with-Python
+	url = https://github.com/PacktPublishing/Building-ETL-Pipelines-with-Python.git
+[submodule "Getting-Started-with-DuckDB"]
+	path = Getting-Started-with-DuckDB
+	url = https://github.com/PacktPublishing/Getting-Started-with-DuckDB.git
+[submodule "Casual-Inference-and-Discovery-in-Python"]
+	path = Casual-Inference-and-Discovery-in-Python
+	url = https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python.git
+[submodule "HandsOn-Data-Preprocessing-in-Python"]
+	path = HandsOn-Data-Preprocessing-in-Python
+	url = https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python.git
+[submodule "Machine-Learning-Engineering-with-Python-2E"]
+	path = Machine-Learning-Engineering-with-Python-2E
+	url = https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition.git
+[submodule "Principles-of-Data-Science-3E"]
+	path = Principles-of-Data-Science-3E
+	url = https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition.git
+[submodule "15-Math-Concepts-Every-DS-Should-Know"]
+	path = 15-Math-Concepts-Every-DS-Should-Know
+	url = https://github.com/PacktPublishing/15-Math-Concepts-Every-Data-Scientist-Should-Know.git
+[submodule "Modern-Python-Cookbook-3E"]
+	path = Modern-Python-Cookbook-3E
+	url = https://github.com/PacktPublishing/Modern-Python-Cookbook-Third-Edition.git
+[submodule "Practical-Approach-to-TS-Forecasting-using-Python"]
+	path = Practical-Approach-to-TS-Forecasting-using-Python
+	url = https://github.com/PacktPublishing/A-Practical-Approach-to-Timeseries-Forecasting-using-Python.git
+[submodule "Enhancing-DL-with-Bayesian-Inference"]
+	path = Enhancing-DL-with-Bayesian-Inference
+	url = https://github.com/PacktPublishing/Enhancing-Deep-Learning-with-Bayesian-Inference.git
+[submodule "Data-analysis-with-Polars"]
+	path = Data-analysis-with-Polars
+	url = https://github.com/PacktPublishing/Data-Analysis-with-Polars.git
+[submodule "Casaul-Inference-with-Bayesian-Networks"]
+	path = Casaul-Inference-with-Bayesian-Networks
+	url = https://github.com/PacktPublishing/Causal-Inference-with-Bayesian-Networks.git
+[submodule "Data-Augmentation-with-Python"]
+	path = Data-Augmentation-with-Python
+	url = https://github.com/PacktPublishing/Data-Augmentation-with-Python.git
+[submodule "MSFT-Power-Apps-Cookbook-3E"]
+	path = MSFT-Power-Apps-Cookbook-3E
+	url = https://github.com/PacktPublishing/Microsoft-Power-Apps-Cookbook-Third-Edition.git
+[submodule "Apache-Airflow-Best-Practices"]
+	path = Apache-Airflow-Best-Practices
+	url = https://github.com/PacktPublishing/Apache-Airflow-Best-Practices.git
+[submodule "Casual-Inference-in-R"]
+	path = Casual-Inference-in-R
+	url = https://github.com/PacktPublishing/Causal-Inference-in-R.git
+[submodule "Building-Modern-Data-Apps-Using-DataBricks-Lakehouse"]
+	path = Building-Modern-Data-Apps-Using-DataBricks-Lakehouse
+	url = https://github.com/PacktPublishing/Building-Modern-Data-Applications-Using-Databricks-Lakehouse.git
+[submodule "HandsOn-SWE-with-Python-2E"]
+	path = HandsOn-SWE-with-Python-2E
+	url = https://github.com/PacktPublishing/Hands-On-Software-Engineering-with-Python-Second-Edition.git
+[submodule "Building-Interactive-Dashboards-in-MSFT-365-Excel"]
+	path = Building-Interactive-Dashboards-in-MSFT-365-Excel
+	url = https://github.com/PacktPublishing/Building-Interactive-Dashboards-in-Microsoft-365-Excel.git
+[submodule "Plotly-Dash-Cookbook"]
+	path = Plotly-Dash-Cookbook
+	url = https://github.com/PacktPublishing/Plotly-Dash-Cookbook.git
+[submodule "BioStatistics-with-Python"]
+	path = BioStatistics-with-Python
+	url = https://github.com/PacktPublishing/Biostatistics-with-Python.git
+[submodule "Streamlit-Cookbook"]
+	path = Streamlit-Cookbook
+	url = https://github.com/PacktPublishing/Streamlit-Cookbook.git
+[submodule "Implmenting-Analytics-Solutions-Using-MSFT-Fabric-DP600-Exam-Study-Guide"]
+	path = Implmenting-Analytics-Solutions-Using-MSFT-Fabric-DP600-Exam-Study-Guide
+	url = https://github.com/PacktPublishing/Implementing-Analytics-Solutions-Using-Microsoft-Fabric-DP-600-Exam-Study-Guide.git
+[submodule "Learn-MSFT-PowerBI-3E"]
+	path = Learn-MSFT-PowerBI-3E
+	url = https://github.com/PacktPublishing/Learn-Microsoft-Power-BI_3E.git
+[submodule "Modern-TS-Forecasting-with-Python-2E"]
+	path = Modern-TS-Forecasting-with-Python-2E
+	url = https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E.git
+[submodule "Data-Engineering-Best-Practices"]
+	path = Data-Engineering-Best-Practices
+	url = https://github.com/PacktPublishing/Data-Engineering-Best-Practices.git
+[submodule "Master-Data-Structures-and-Algorithms-Interviews"]
+	path = Master-Data-Structures-and-Algorithms-Interviews
+	url = https://github.com/PacktPublishing/-Master-Data-Structures-and-Algorithms-Interviews---Ace-Leetcode-Blind-75-.git
+[submodule "Sklearn-Cookbook-3E"]
+	path = Sklearn-Cookbook-3E
+	url = https://github.com/PacktPublishing/Scikit-Learn-Cookbook-Third-Edition.git
+[submodule "Extending-PowerBI-with-Python-R-2E"]
+	path = Extending-PowerBI-with-Python-R-2E
+	url = https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition.git
+[submodule "Modern-DevOps-Practices-2E"]
+	path = Modern-DevOps-Practices-2E
+	url = https://github.com/PacktPublishing/Modern-DevOps-Practices-2e.git
+[submodule "Applied-Computational-Thinking-with-Python-2E"]
+	path = Applied-Computational-Thinking-with-Python-2E
+	url = https://github.com/PacktPublishing/Applied-Computational-Thinking-with-Python-Second-Edition.git
+[submodule "Deep-Learning-Architect-Handbook"]
+	path = Deep-Learning-Architect-Handbook
+	url = https://github.com/PacktPublishing/The-Deep-Learning-Architect-Handbook.git
+[submodule "Learning-Grafana10"]
+	path = Learning-Grafana10
+	url = https://github.com/PacktPublishing/Learn-Grafana-10.git
+[submodule "ML-for-Imbalanced-Data"]
+	path = ML-for-Imbalanced-Data
+	url = https://github.com/PacktPublishing/Machine-Learning-for-Imbalanced-Data.git
+[submodule "Learning-Geospatial-Analysis-with-Python-4E"]
+	path = Learning-Geospatial-Analysis-with-Python-4E
+	url = https://github.com/PacktPublishing/Learning-Geospatial-Analysis-with-Python-Fourth-Edition.git
+[submodule "Practical-ML-on-Databricks"]
+	path = Practical-ML-on-Databricks
+	url = https://github.com/PacktPublishing/Practical-Machine-Learning-on-Databricks.git
+[submodule "Python-DL-3E"]
+	path = Python-DL-3E
+	url = https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition.git
+[submodule "Stats-and-ML-with-R-Workshop"]
+	path = Stats-and-ML-with-R-Workshop
+	url = https://github.com/PacktPublishing/The-Statistics-and-Machine-Learning-with-R-Workshop.git
+[submodule "Geospatial-Analysis-with-SQL"]
+	path = Geospatial-Analysis-with-SQL
+	url = https://github.com/PacktPublishing/Geospatial-Analysis-with-SQL.git
+[submodule "Debugging-ML-Models-with-Python"]
+	path = Debugging-ML-Models-with-Python
+	url = https://github.com/PacktPublishing/Debugging-Machine-Learning-Models-with-Python.git
+[submodule "Building-Stats-Models-with-Python"]
+	path = Building-Stats-Models-with-Python
+	url = https://github.com/PacktPublishing/Building-Statistical-Models-in-Python.git
+[submodule "Handbook-of-Mathematical-Models-with-Python"]
+	path = Handbook-of-Mathematical-Models-with-Python
+	url = https://github.com/PacktPublishing/A-Handbook-of-Mathematical-Models-with-Python.git
+[submodule "Building-DS-Apps-with-FastAPI-2E"]
+	path = Building-DS-Apps-with-FastAPI-2E
+	url = https://github.com/PacktPublishing/Building-Data-Science-Applications-with-FastAPI-Second-Edition.git
+[submodule "Data-Wrangling-with-SQL"]
+	path = Data-Wrangling-with-SQL
+	url = https://github.com/PacktPublishing/Data-Wrangling-with-SQL.git
+[submodule "Tableau-Cookbook-for-Experienced-Pros"]
+	path = Tableau-Cookbook-for-Experienced-Pros
+	url = https://github.com/PacktPublishing/Tableau-Cookbook-for-Experienced-Professionals.git
+[submodule "Async-Programming-with-Python"]
+	path = Async-Programming-with-Python
+	url = https://github.com/PacktPublishing/Asynchronous-Programming-in-Python.git
+[submodule "Data-Viz-for-Advanced-Analytics-with-Tableau"]
+	path = Data-Viz-for-Advanced-Analytics-with-Tableau
+	url = https://github.com/PacktPublishing/Data-Visualization-for-Advanced-Analytics-with-Tableau.git
+[submodule "MSFT-PowerBI-Performance-Best-Practices-2E"]
+	path = MSFT-PowerBI-Performance-Best-Practices-2E
+	url = https://github.com/PacktPublishing/Microsoft-Power-BI-Performance-Best-Practices-Second-Edition.git
+[submodule "Deep-Learning-with-PyTorch"]
+	path = Deep-Learning-with-PyTorch
+	url = https://github.com/PacktPublishing/Deep-Learning-with-PyTorch..git
+[submodule "PowerBI-Cookbook-3E"]
+	path = PowerBI-Cookbook-3E
+	url = https://github.com/PacktPublishing/Power-BI-Cookbook-Third-Edition.git
+[submodule "FastAPI-Cookbook"]
+	path = FastAPI-Cookbook
+	url = https://github.com/PacktPublishing/FastAPI-Cookbook.git
+[submodule "Python-for-Algorithmic-Trading-Cookbook"]
+	path = Python-for-Algorithmic-Trading-Cookbook
+	url = https://github.com/PacktPublishing/Python-for-Algorithmic-Trading-Cookbook.git
+[submodule "In-Memory-Analytics-with-Apache-Arrow-2E"]
+	path = In-Memory-Analytics-with-Apache-Arrow-2E
+	url = https://github.com/PacktPublishing/In-Memory-Analytics-with-Apache-Arrow-Second-Edition.git
+[submodule "Options-Pricing-with-Python"]
+	path = Options-Pricing-with-Python
+	url = https://github.com/PacktPublishing/Options-Pricing-with-Python.git
+[submodule "Python-Data-Scleaning-and-Prep-Best-Practices"]
+	path = Python-Data-Scleaning-and-Prep-Best-Practices
+	url = https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices.git
