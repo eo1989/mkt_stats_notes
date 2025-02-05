@@ -262,3 +262,114 @@
 [submodule "Python-Data-Scleaning-and-Prep-Best-Practices"]
 	path = Python-Data-Scleaning-and-Prep-Best-Practices
 	url = https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices.git
+[submodule "Julia-Quick-Syntax-Reference-2E"]
+	path = Julia-Quick-Syntax-Reference-2E
+	url = https://github.com/Apress/Julia-Quick-Syntax-Reference-2nd-ed.git
+[submodule "Snowflake-Recipes"]
+	path = Snowflake-Recipes
+	url = https://github.com/Apress/Snowflake-Recipes.git
+[submodule "Learn-DS-Using-Python"]
+	path = Learn-DS-Using-Python
+	url = https://github.com/Apress/Learn-Data-Science-Using-Python.git
+[submodule "Haskell/Magical-Haskell"]
+	path = Haskell/Magical-Haskell
+	url = https://github.com/Apress/Magical-Haskell.git
+[submodule "Statistical-Quantitative-Methods-in-Finance"]
+	path = Statistical-Quantitative-Methods-in-Finance
+	url = https://github.com/Apress/Statistical-Quantitative-Methods-in-Finance.git
+[submodule "Stochastic-Finance-with-Python"]
+	path = Stochastic-Finance-with-Python
+	url = https://github.com/Apress/Stochastic-Finance-with-Python.git
+[submodule "Essential-Data-Analytics-DS-and-AI"]
+	path = Essential-Data-Analytics-DS-and-AI
+	url = https://github.com/Apress/Essential-Data-Analytics-Data-Science-and-AI.git
+[submodule "Databricks-Data-Intelligence-Platform"]
+	path = Databricks-Data-Intelligence-Platform
+	url = https://github.com/Apress/Databricks-Data-Intelligence-Platform.git
+[submodule "Income-Statement-Semantic-Models"]
+	path = Income-Statement-Semantic-Models
+	url = https://github.com/Apress/Income-Statement-Semantic-Models.git
+[submodule "HandsOn-Deep-Learning"]
+	path = HandsOn-Deep-Learning
+	url = https://github.com/Apress/Hands-on-Deep-Learning.git
+[submodule "Numerical-Python-3E"]
+	path = Numerical-Python-3E
+	url = https://github.com/Apress/Numerical-Python-3rd-ed.git
+[submodule "Prototyping-Python-Dashboards-for-Scientists-and-Engineers"]
+	path = Prototyping-Python-Dashboards-for-Scientists-and-Engineers
+	url = https://github.com/Apress/Prototyping-Python-Dashboards-for-Scientists-and-Engineers.git
+[submodule "Leveling-Up-SQL"]
+	path = Leveling-Up-SQL
+	url = https://github.com/Apress/leveling-up-sql.git
+[submodule "Web-Scraping-with-Python"]
+	path = Web-Scraping-with-Python
+	url = https://github.com/Apress/Web-Scraping-with-Python.git
+[submodule "Deep-Reinforcement-Learning-with-Python"]
+	path = Deep-Reinforcement-Learning-with-Python
+	url = https://github.com/Apress/Deep-Reinforcement-Learning-with-Python.git
+[submodule "SQL-Server-Analytical-Toolkit"]
+	path = SQL-Server-Analytical-Toolkit
+	url = https://github.com/Apress/SQL-Server-Analytical-Toolkit.git
+[submodule "Art-of-Reinforcement-Learning"]
+	path = Art-of-Reinforcement-Learning
+	url = https://github.com/Apress/art-of-reinforcement-learning.git
+[submodule "Mathematica/Beginning-Mathematica-and-Wolfram-for-DS-2E"]
+	path = Mathematica/Beginning-Mathematica-and-Wolfram-for-DS-2E
+	url = https://github.com/Apress/Beginning-Mathematica-and-Wolfram-for-Data-Science-2nd-ed.git
+[submodule "Mastering-MSFT-Fabric"]
+	path = Mastering-MSFT-Fabric
+	url = https://github.com/Apress/Mastering_Microsoft_Fabric.git
+[submodule "Quantiative-Trading-Strategies-Using-Python"]
+	path = Quantiative-Trading-Strategies-Using-Python
+	url = https://github.com/Apress/Quantitative-Trading-Strategies-Using-Python.git
+[submodule "PowerBI-Compendium"]
+	path = PowerBI-Compendium
+	url = https://github.com/Apress/A-Power-BI-Compendium.git
+[submodule "Essential-Guide-to-HTML5-3E"]
+	path = Essential-Guide-to-HTML5-3E
+	url = https://github.com/Apress/The-Essential-Guide-to-HTML5-3rd-Edition-by-Jeanine-Meyer.git
+[submodule "Go/Pro-Go"]
+	path = Go/Pro-Go
+	url = https://github.com/Apress/pro-go.git
+[submodule "Finding-Ghosts-In-Your-Data"]
+	path = Finding-Ghosts-In-Your-Data
+	url = https://github.com/Apress/finding-ghosts-in-your-data.git
+[submodule "Python-Data-Analytics-3E"]
+	path = Python-Data-Analytics-3E
+	url = https://github.com/Apress/python-data-analytics-3e.git
+[submodule "Building-High-Performance-WebApps-with-FastAPI"]
+	path = Building-High-Performance-WebApps-with-FastAPI
+	url = https://github.com/Apress/Build-High-Performance-Web-Apps-with-FastAPI-by-Malhar-Lathkar.git
+[submodule "Typescript/Essential-Typescript"]
+	path = Typescript/Essential-Typescript
+	url = https://github.com/Apress/essential-typescript.git
+[submodule "HandsOn-Guide-Apache-Spark3"]
+	path = HandsOn-Guide-Apache-Spark3
+	url = https://github.com/Apress/hands-on-guide-apache-spark-3.git
+[submodule "Functional-Programming-in-R4"]
+	path = Functional-Programming-in-R4
+	url = https://github.com/Apress/functional-programming-r4.git
+[submodule "Practical-Business-Analytics-Using-Python-and-R"]
+	path = Practical-Business-Analytics-Using-Python-and-R
+	url = https://github.com/Apress/practical-business-analytics-r-python.git
+[submodule "Bayesian-Optimization"]
+	path = Bayesian-Optimization
+	url = https://github.com/Apress/Bayesian-optimization.git
+[submodule "Time-Series-Algorithm-Recipes"]
+	path = Time-Series-Algorithm-Recipes
+	url = https://github.com/Apress/time-series-algorithm-recipes.git
+[submodule "PyTorch-Recipes-2E"]
+	path = PyTorch-Recipes-2E
+	url = https://github.com/Apress/pytorch-recipes-2e.git
+[submodule "Modern-Deep-Learning-for-Tabular-Data"]
+	path = Modern-Deep-Learning-for-Tabular-Data
+	url = https://github.com/Apress/modern-deep-learning-tabular-data.git
+[submodule "Reinforcement-Learning-for-Finance"]
+	path = Reinforcement-Learning-for-Finance
+	url = https://github.com/Apress/reinforcement-learning-finance.git
+[submodule "Synthetic-Data-for-Deep-Learning"]
+	path = Synthetic-Data-for-Deep-Learning
+	url = https://github.com/Apress/synthetic-data-deep-learning.git
+[submodule "Beginners-Guide-to-Streamlit-with-Python"]
+	path = Beginners-Guide-to-Streamlit-with-Python
+	url = https://github.com/Apress/beginners-guide-streamlit-python.git
